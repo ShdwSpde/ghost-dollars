@@ -12,7 +12,10 @@
 Help NYC residents *see the abstraction* hiding inside thousands of honest-looking capital line items: the structural pattern of which neighborhoods get starved of investment, read against who lives there. The phrase that drives the project — **"see what is lost in the data"** — resolves into two literal losses:
 
 - **Ghost dollars** — the capital investment a neighborhood *did not* receive relative to an equal-per-resident baseline (the equity gap).
-- **Dark dollars** — the capital the city *did* spend but cannot or will not tag to any neighborhood (the transparency gap). The NYC Comptroller's December 2025 report *"Flying Blind on Billions"* found the city's own Capital Projects Dashboard contains only ~47% of project IDs and ~58% of planned dollars present in the underlying financial system. Roughly half the money is invisible.
+- **Dark dollars** — the capital the city *did* spend but cannot or will not tag to any neighborhood (the transparency gap). There are **two compounding gaps**, and we must not conflate them:
+  1. **Unplaceable share (computed by this tool):** of the current commitment-plan budget the dashboard *does* publish, **~74%** ($116B of $158B) is tagged `Citywide`, borough-only, or lump-sum — it names no community district. This is our computed `darkSharePct`.
+  2. **Missing share (NYC Comptroller, *"Flying Blind on Billions,"* Dec 2025):** the dashboard contains only ~47% of project IDs / ~58% of planned dollars present in the underlying financial system — i.e. roughly half of projects never appear at all.
+  These stack: of all capital, ~half never reaches the dashboard, and of what does, ~three-quarters can't be placed in a neighborhood. The UI must present #1 as our measured number and cite #2 as a *separate, compounding* fact — never imply the Comptroller's 47% is the source of our ~74%.
 
 The tool tells both truths at once: invisible as investment, and — via a planned 311 layer — hyper-visible as suspicion.
 
