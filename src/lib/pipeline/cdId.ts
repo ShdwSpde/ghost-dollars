@@ -8,16 +8,20 @@ const NAME_TO_DIGIT: Record<string, string> = {
 
 export function normalizeCdId(raw: string | number | null | undefined): string | null {
   if (raw === null || raw === undefined) return null;
-  const s = String(raw).trim().toLowerCase();
+  let s = String(raw).trim().toLowerCase();
   if (s === "" || s.includes("citywide") || s.includes("various")) return null;
 
-  // Pure 3-digit boro_cd, e.g. "412"
-  if (/^\d{3}$/.test(s)) return s;
+  // Strip a float-serialized integer, e.g. "412.0" -> "412".
+  s = s.replace(/^(\d+)\.0+$/, "$1");
 
-  // "<borough name or abbr> <number>" or "<abbr><number>", e.g. "queens 12", "q12"
-  const m = s.match(/^([a-z ]+?)\s*(\d{1,2})$/);
+  // Pure 3-digit boro_cd with a valid borough digit (1-5).
+  if (/^[1-5]\d{2}$/.test(s)) return s;
+
+  // "<borough name or abbr> [CD] <1-2 digit number>", e.g. "queens 12", "q12", "queens cd 12".
+  const m = s.match(/^([a-z. ]+?)\s*(\d{1,2})$/);
   if (m) {
-    const digit = NAME_TO_DIGIT[m[1].trim()];
+    const name = m[1].trim().replace(/\s*c\.?d\.?$/, "").trim();
+    const digit = NAME_TO_DIGIT[name];
     if (digit) return digit + m[2].padStart(2, "0");
   }
   return null;
@@ -28,7 +32,7 @@ export function cdNumber(boroCd: string): number {
 }
 
 export function isPlaceable(boroCd: string | null): boolean {
-  if (!boroCd || !/^\d{3}$/.test(boroCd)) return false;
+  if (!boroCd || !/^[1-5]\d{2}$/.test(boroCd)) return false;
   const n = cdNumber(boroCd);
   return n >= 1 && n <= 18;
 }
