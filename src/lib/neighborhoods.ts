@@ -7,6 +7,9 @@ export function lookupCd(query: string): string | null {
   const q = query.trim().toLowerCase();
   if (!q) return null;
   if (MAP[q]) return MAP[q];
-  const hit = Object.keys(MAP).find((k) => k.includes(q) || q.includes(k));
-  return hit ? MAP[hit] : null;
+  const keys = Object.keys(MAP);
+  const prefix = q.length >= 3 ? keys.find((k) => k.startsWith(q)) : undefined;
+  if (prefix) return MAP[prefix];
+  const contains = keys.find((k) => q.includes(k));
+  return contains ? MAP[contains] : null;
 }

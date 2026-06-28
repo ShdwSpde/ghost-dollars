@@ -1,7 +1,7 @@
 "use client";
 import { useAtlas } from "./AtlasProvider";
 import { BOROUGH_BY_DIGIT } from "@/src/lib/pipeline/cdId";
-import { fmtUsd, fmtPct, ghostSentence } from "@/src/lib/format";
+import { fmtUsd, fmtPct, ghostSentence, ordinal } from "@/src/lib/format";
 
 export function DistrictCard() {
   const { dataset, selectedCd, setSelectedCd } = useAtlas();
@@ -17,7 +17,7 @@ export function DistrictCard() {
         <div><dt>Visible capital</dt><dd>{fmtUsd(cd.visibleCapital)}</dd></div>
         <div><dt>Expected at parity</dt><dd>{fmtUsd(cd.expectedCapital)}</dd></div>
         <div><dt>Ghost dollars</dt><dd>{fmtUsd(cd.ghostDollars)}</dd></div>
-        <div><dt>Per-resident rank</dt><dd>{cd.perResidentPercentile}th pct</dd></div>
+        <div><dt>Per-resident rank</dt><dd>{ordinal(cd.perResidentPercentile)} pct</dd></div>
         <div><dt>Population</dt><dd>{cd.population.toLocaleString()}</dd></div>
         <div><dt>Median income</dt><dd>{cd.medianHhIncome ? fmtUsd(cd.medianHhIncome) : "—"}</dd></div>
         <div><dt>% BIPOC</dt><dd>{fmtPct(cd.pctBipoc)}</dd></div>
