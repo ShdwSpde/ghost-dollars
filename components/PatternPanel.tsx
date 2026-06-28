@@ -22,17 +22,25 @@ export function PatternPanel() {
     const xs = points.map((p) => p.x);
     const xmin = Math.min(...xs), xmax = Math.max(...xs);
     const chart = Plot.plot({
-      marginLeft: 60, height: 320,
-      x: { label: LABELS[dim as keyof typeof LABELS] }, y: { label: "Capital $ / resident" },
+      marginLeft: 60, marginBottom: 42, height: 320,
+      style: { background: "transparent", color: "#181a2e", fontFamily: "var(--font-public-sans), system-ui, sans-serif", fontSize: "12px" },
+      x: { label: LABELS[dim as keyof typeof LABELS], grid: false },
+      y: { label: "Capital $ / resident", grid: true },
       marks: [
-        Plot.dot(points, { x: "x", y: "y", r: (d: typeof points[number])=>d.boroCd===hoverCd?7:4, fill: (d: typeof points[number])=>d.inCorridor?"#b03a6e":"#3f9690",
+        Plot.line([{x:xmin,y:reg.slope*xmin+reg.intercept},{x:xmax,y:reg.slope*xmax+reg.intercept}], { x:"x", y:"y", stroke:"#F7B21B", strokeWidth:4 }),
+        Plot.dot(points, { x: "x", y: "y", r: (d: typeof points[number])=>d.boroCd===hoverCd?8:5,
+          fill: (d: typeof points[number])=>d.inCorridor?"#EA3B22":"#1E2C8C", stroke: "#181a2e", strokeWidth: 0.75,
           title: (d: typeof points[number])=>`CD ${d.boroCd}`, }),
-        Plot.line([{x:xmin,y:reg.slope*xmin+reg.intercept},{x:xmax,y:reg.slope*xmax+reg.intercept}], { x:"x", y:"y", stroke:"#e2b13c", strokeWidth:2 }),
       ],
     });
     ref.current.replaceChildren(chart);
     return () => chart.remove();
   }, [points, hoverCd, dim]);
 
-  return <div ref={ref} aria-label="Pattern scatter: per-resident capital vs demographics" />;
+  return (
+    <div className="pattern">
+      <h3>The pattern</h3>
+      <div ref={ref} aria-label="Pattern scatter: per-resident capital vs demographics" />
+    </div>
+  );
 }

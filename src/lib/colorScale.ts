@@ -1,11 +1,12 @@
 import type { MetricKey } from "./loadData";
 
-// Ghost = absence → a "missing/negative space" ramp (pale to deep magenta-red).
-// Actual/perResident = presence → pale to deep teal.
+// Mamdani-campaign poster ramps on the warm cream ground.
+// Ghost = deficit/loss → cream → marigold → vermilion → deep oxblood.
+// Actual/perResident = presence/funded → cream → light blue → cobalt → deep navy.
 const RAMPS: Record<MetricKey, string[]> = {
-  ghost: ["#f3e9ee", "#d98aa9", "#b03a6e", "#7a1f48"],
-  actual: ["#e8f2f1", "#8fc9c4", "#3f9690", "#1d5f5b"],
-  perResident: ["#e8f2f1", "#8fc9c4", "#3f9690", "#1d5f5b"],
+  ghost: ["#F3E9D3", "#F7B21B", "#EA3B22", "#8E1B12"],
+  actual: ["#F3E9D3", "#9FB3E8", "#1E2C8C", "#121A57"],
+  perResident: ["#F3E9D3", "#9FB3E8", "#1E2C8C", "#121A57"],
 };
 
 export function colorForValue(value: number, min: number, max: number, metric: MetricKey): string {

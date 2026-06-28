@@ -6,14 +6,14 @@ import { useAtlas } from "./AtlasProvider";
 import { getMetricValue } from "@/src/lib/loadData";
 import { colorForValue } from "@/src/lib/colorScale";
 
-// Neutral fill for features with no matching metric (park districts,
+// Muted-cream fill for features with no matching metric (park districts,
 // Joint-Interest-Area geometries, etc. — ~12 of the 71 GeoJSON features).
-const NO_DATA_COLOR = "#1a1a1d";
+const NO_DATA_COLOR = "#E0D2B4";
 
 export function MapPanel() {
   const ref = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const { dataset, metric, setSelectedCd, setHoverCd } = useAtlas();
+  const { dataset, metric, selectedCd, setSelectedCd, setHoverCd } = useAtlas();
 
   // Initial map mount — runs once when dataset is first available.
   useEffect(() => {
@@ -21,6 +21,7 @@ export function MapPanel() {
 
     const map = new maplibregl.Map({
       container: ref.current,
+      attributionControl: { compact: false },
       style: {
         version: 8,
         sources: {},
@@ -28,7 +29,7 @@ export function MapPanel() {
           {
             id: "bg",
             type: "background",
-            paint: { "background-color": "#0e0e10" },
+            paint: { "background-color": "#F3E9D3" },
           },
         ],
       },
@@ -53,18 +54,31 @@ export function MapPanel() {
           : NO_DATA_COLOR;
       }
 
-      map.addSource("cds", { type: "geojson", data: geo });
+      map.addSource("cds", {
+        type: "geojson",
+        data: geo,
+        attribution:
+          "Boundaries: NYC Dept. of City Planning · Capital data: NYC Capital Projects Dashboard / Comptroller",
+      });
       map.addLayer({
         id: "cd-fill",
         type: "fill",
         source: "cds",
-        paint: { "fill-color": ["get", "fill"], "fill-opacity": 0.85 },
+        paint: { "fill-color": ["get", "fill"], "fill-opacity": 0.88 },
       });
       map.addLayer({
         id: "cd-line",
         type: "line",
         source: "cds",
-        paint: { "line-color": "#0e0e10", "line-width": 0.5 },
+        paint: { "line-color": "#181a2e", "line-width": 0.6, "line-opacity": 0.5 },
+      });
+      // Selection highlight — makes scroll-driven selection visible.
+      map.addLayer({
+        id: "cd-selected",
+        type: "line",
+        source: "cds",
+        paint: { "line-color": "#181a2e", "line-width": 3.5 },
+        filter: ["==", ["get", "boroCd"], selectedCd ?? "__none__"],
       });
 
       map.on("click", "cd-fill", (e) =>
@@ -100,11 +114,19 @@ export function MapPanel() {
     })();
   }, [metric, dataset]);
 
+  // Move the selection highlight when the chosen district changes.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !map.getLayer("cd-selected")) return;
+    map.setFilter("cd-selected", ["==", ["get", "boroCd"], selectedCd ?? "__none__"]);
+  }, [selectedCd]);
+
   return (
     <div
       ref={ref}
       style={{ position: "absolute", inset: 0 }}
       aria-label="Community district map"
+      tabIndex={0}
     />
   );
 }

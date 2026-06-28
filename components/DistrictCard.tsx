@@ -3,6 +3,58 @@ import { useAtlas } from "./AtlasProvider";
 import { BOROUGH_BY_DIGIT } from "@/src/lib/pipeline/cdId";
 import { fmtUsd, fmtPct, ghostSentence, ordinal } from "@/src/lib/format";
 
+// The signature device: ghost dollars drawn as visible negative space.
+// Solid cobalt = capital received; hollow vermilion-outlined extension = the
+// parity gap the district did NOT get. Above parity = full cobalt + marigold tick.
+function GhostBar({ visible, expected, ghost }: { visible: number; expected: number; ghost: number }) {
+  const aboveParity = ghost <= 0;
+  if (aboveParity) {
+    return (
+      <div className="ghostbar">
+        <p className="ghostbar-legend">Capital received vs equal-per-resident parity</p>
+        <div
+          className="ghostbar-track"
+          role="img"
+          aria-label={`Received ${fmtUsd(visible)}, above the ${fmtUsd(expected)} equal-per-resident parity share.`}
+        >
+          <div className="ghostbar-fill" style={{ flex: 1 }}>
+            <span className="ghostbar-num">{fmtUsd(visible)}</span>
+          </div>
+          <div className="ghostbar-over" title="Above parity" />
+        </div>
+        <div className="ghostbar-caption">
+          <span>Received (above parity)</span>
+          <span>Parity {fmtUsd(expected)}</span>
+        </div>
+      </div>
+    );
+  }
+  const cobaltPct = Math.max(2, Math.min(100, (visible / expected) * 100));
+  const gapPct = Math.max(0, 100 - cobaltPct);
+  return (
+    <div className="ghostbar">
+      <p className="ghostbar-legend">What it got vs what parity owes</p>
+      <div
+        className="ghostbar-track"
+        role="img"
+        aria-label={`Received ${fmtUsd(visible)} of the ${fmtUsd(expected)} expected at parity — ${fmtUsd(ghost)} missing.`}
+      >
+        <div className="ghostbar-fill" style={{ width: `${cobaltPct}%` }}>
+          {cobaltPct > 30 && <span className="ghostbar-num">{fmtUsd(visible)}</span>}
+        </div>
+        <div className="ghostbar-gap" style={{ width: `${gapPct}%` }}>
+          <span className="ghostbar-num">{fmtUsd(ghost)} missing</span>
+        </div>
+      </div>
+      <div className="ghostbar-caption">
+        <span>■ Received</span>
+        <span>▢ Ghost dollars (the gap)</span>
+        <span>Parity {fmtUsd(expected)}</span>
+      </div>
+    </div>
+  );
+}
+
 export function DistrictCard() {
   const { dataset, selectedCd, setSelectedCd } = useAtlas();
   if (!selectedCd) return <aside className="card empty">Click a district to see what it lost.</aside>;
@@ -13,6 +65,7 @@ export function DistrictCard() {
       <button className="close" onClick={()=>setSelectedCd(null)} aria-label="Close">×</button>
       <h2>{BOROUGH_BY_DIGIT[cd.boroCd[0]]} CD{parseInt(cd.boroCd.slice(1),10)}</h2>
       {cd.corridorNote && <p className="corridor">{cd.corridorNote}</p>}
+      <GhostBar visible={cd.visibleCapital} expected={cd.expectedCapital} ghost={cd.ghostDollars} />
       <dl>
         <div><dt>Visible capital</dt><dd>{fmtUsd(cd.visibleCapital)}</dd></div>
         <div><dt>Expected at parity</dt><dd>{fmtUsd(cd.expectedCapital)}</dd></div>
