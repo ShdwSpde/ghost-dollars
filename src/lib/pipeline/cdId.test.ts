@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { normalizeCdId, cdNumber, isPlaceable } from "./cdId";
+import { normalizeCdId, cdNumber, isPlaceable, parseCommunityBoard } from "./cdId";
 
 describe("normalizeCdId", () => {
   it("passes through 3-digit boro_cd", () => { expect(normalizeCdId("412")).toBe("412"); });
@@ -22,4 +22,14 @@ describe("isPlaceable", () => {
   it("true at the residential boundary CD 18", () => { expect(isPlaceable("318")).toBe(true); });
   it("false at the JIA boundary CD 64", () => { expect(isPlaceable("264")).toBe(false); });
   it("false for an invalid borough digit", () => { expect(isPlaceable("612")).toBe(false); });
+});
+
+describe("parseCommunityBoard", () => {
+  it("single CD", () => { expect(parseCommunityBoard("Bronx 12")).toEqual(["212"]); });
+  it("redundant-borough single CD", () => { expect(parseCommunityBoard("Manhattan, Manhattan 03")).toEqual(["103"]); });
+  it("multi-CD list", () => { expect(parseCommunityBoard("Queens 07, Queens 08")).toEqual(["407", "408"]); });
+  it("borough-only -> empty", () => { expect(parseCommunityBoard("Brooklyn")).toEqual([]); });
+  it("citywide -> empty", () => { expect(parseCommunityBoard("Citywide")).toEqual([]); });
+  it("dedups repeated CDs", () => { expect(parseCommunityBoard("Manhattan 03, Manhattan 03")).toEqual(["103"]); });
+  it("empty/null -> empty", () => { expect(parseCommunityBoard("")).toEqual([]); expect(parseCommunityBoard(null)).toEqual([]); });
 });

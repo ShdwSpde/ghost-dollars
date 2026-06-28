@@ -36,3 +36,13 @@ export function isPlaceable(boroCd: string | null): boolean {
   const n = cdNumber(boroCd);
   return n >= 1 && n <= 18;
 }
+
+export function parseCommunityBoard(raw: string | null | undefined): string[] {
+  if (raw === null || raw === undefined) return [];
+  const out: string[] = [];
+  for (const seg of String(raw).split(",")) {
+    const cd = normalizeCdId(seg);
+    if (cd && isPlaceable(cd) && !out.includes(cd)) out.push(cd);
+  }
+  return out;
+}
