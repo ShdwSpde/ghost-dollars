@@ -15,7 +15,7 @@
 - **Capital window (Phase 1 decision):** `total project budget` from the current Capital Projects Dashboard (`fb86-vt7u`). Disclosed verbatim in dataset meta as `"Total project budget, current Capital Projects Dashboard"`. Spend-to-date is a future toggle, not Phase 1.
 - **Parity baseline:** flat equal-per-resident only. `parityPerResident = Σ visibleCapital / Σ population` over placeable CDs. Labeled a baseline, never an entitlement.
 - **Reporting:** ghost dollars shown alongside a **percentile rank** of per-resident visible capital; never imply false precision.
-- **Completeness caveat:** the dark-dollar share (≈47%, NYC Comptroller *Flying Blind on Billions*, Dec 2025) is a headline element, surfaced in the UI, never a footnote.
+- **Two transparency gaps, never conflated (headline, not footnote):** (1) our COMPUTED `darkSharePct` (~74%) = share of the *published* current-plan budget that names no community district (Citywide/borough-only/lump-sum); (2) the NYC Comptroller's *Flying Blind on Billions* (Dec 2025) ~47% = projects missing from the dashboard entirely. Present #1 as our measured number; cite #2 as a SEPARATE, compounding fact.
 - **ACS vintage:** 2019–2023 5-year, consistent throughout. Do not mix vintages.
 - **Corridor CDs:** `Q3 (403)`, `Q4 (404)`, `Q7 (407)`, `Q10 (410)`, `Q12 (412)`. CD7 note: proposed Metropolitan Park casino. CD10 note: Resorts World + Aqueduct.
 - **311 layer is NOT in Phase 1**, but the caveat component (Task 12) must be built so a layer-locked caveat can be attached later.
@@ -1292,9 +1292,9 @@ export function DarkDollarsBanner() {
   const { dataset: { meta } } = useAtlas();
   return (
     <div className="dark-banner">
-      <strong>{meta.darkSharePct.toFixed(0)}%</strong> of capital ({fmtUsd(meta.totalDarkCapital)}) can't be placed on this map.
+      <strong>{meta.darkSharePct.toFixed(0)}%</strong> of the capital the city <em>does</em> publish ({fmtUsd(meta.totalDarkCapital)}) can't be placed in any neighborhood — it's tagged Citywide, borough-only, or lump-sum.
       <Caveat locked source="NYC Comptroller, “Flying Blind on Billions,” Dec 2025"
-        message="The city's own dashboard omits roughly half its capital dollars — citywide, lump-sum, or untagged. This map shows only what the city makes visible." />
+        message="And that's only the budget the city publishes. The Comptroller found the dashboard omits ~47% of capital projects entirely. So roughly half the money never appears — and of what does, this share can't be mapped to a neighborhood." />
     </div>
   );
 }
