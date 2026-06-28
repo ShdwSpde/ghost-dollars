@@ -17,7 +17,7 @@
 - **Reporting:** ghost dollars shown alongside a **percentile rank** of per-resident visible capital; never imply false precision.
 - **Completeness caveat:** the dark-dollar share (≈47%, NYC Comptroller *Flying Blind on Billions*, Dec 2025) is a headline element, surfaced in the UI, never a footnote.
 - **ACS vintage:** 2019–2023 5-year, consistent throughout. Do not mix vintages.
-- **Corridor CDs:** `Q3 (303)`, `Q4 (404)`, `Q7 (407)`, `Q10 (410)`, `Q12 (412)`. CD7 note: proposed Metropolitan Park casino. CD10 note: Resorts World + Aqueduct.
+- **Corridor CDs:** `Q3 (403)`, `Q4 (404)`, `Q7 (407)`, `Q10 (410)`, `Q12 (412)`. CD7 note: proposed Metropolitan Park casino. CD10 note: Resorts World + Aqueduct.
 - **311 layer is NOT in Phase 1**, but the caveat component (Task 12) must be built so a layer-locked caveat can be attached later.
 
 ---
@@ -617,7 +617,7 @@ import type { CapitalAggregate } from "./capital";
 import type { CdMetric, Dataset } from "../types";
 
 export const CORRIDOR_NOTES: Record<string, string> = {
-  "303": "Jackson Heights / North Corona",
+  "403": "Jackson Heights / North Corona",
   "404": "Elmhurst / Corona",
   "407": "Flushing / Willets Point — proposed Metropolitan Park casino",
   "410": "South Ozone Park / Howard Beach — Resorts World + Aqueduct",
@@ -1347,7 +1347,7 @@ Expected: FAIL ("Cannot find module './neighborhoods'").
 `src/lib/neighborhoods.ts` (seed with the corridor + common names; extend later):
 ```ts
 const MAP: Record<string, string> = {
-  "jackson heights":"303","north corona":"303","corona":"404","elmhurst":"404",
+  "jackson heights":"403","north corona":"403","corona":"404","elmhurst":"404",
   "flushing":"407","willets point":"407","jamaica":"412","st albans":"412","hollis":"412",
   "south ozone park":"410","ozone park":"410","howard beach":"410",
 };
@@ -1448,7 +1448,7 @@ import { describe, it, expect } from "vitest";
 import { INTRO_STEPS } from "./introSteps";
 describe("INTRO_STEPS", () => {
   it("walks the Queens corridor in order", () => {
-    expect(INTRO_STEPS.map((s)=>s.boroCd)).toEqual(["404","303","407","412","410"]);
+    expect(INTRO_STEPS.map((s)=>s.boroCd)).toEqual(["404","403","407","412","410"]);
   });
   it("each step names a metric and copy", () => {
     for (const s of INTRO_STEPS) { expect(s.headline.length).toBeGreaterThan(0); expect(["actual","perResident","ghost"]).toContain(s.metric); }
@@ -1468,7 +1468,7 @@ Expected: FAIL ("Cannot find module './introSteps'").
 import type { MetricKey } from "./loadData";
 export const INTRO_STEPS: { boroCd: string; metric: MetricKey; headline: string; body: string }[] = [
   { boroCd:"404", metric:"actual", headline:"Corona", body:"Where the route begins — one of the densest immigrant neighborhoods in the country." },
-  { boroCd:"303", metric:"perResident", headline:"Jackson Heights", body:"Per resident, the picture thins. Crowding doesn't summon investment." },
+  { boroCd:"403", metric:"perResident", headline:"Jackson Heights", body:"Per resident, the picture thins. Crowding doesn't summon investment." },
   { boroCd:"407", metric:"ghost", headline:"Flushing", body:"A proposed mega-casino at Citi Field — money the neighborhood hosts but won't keep." },
   { boroCd:"412", metric:"ghost", headline:"Jamaica", body:"Home. Read against parity, the ghost dollars come into focus." },
   { boroCd:"410", metric:"ghost", headline:"South Ozone Park", body:"Resorts World and Aqueduct sit here. The revenue leaves; the ghost dollars stay." },
@@ -1564,4 +1564,4 @@ git commit -m "docs: README + final polish; deploy Phase 1"
 
 **Placeholder scan:** No TBD/TODO. The one deliberate runtime contingency — exact Dashboard field names — is handled with a recorded value in Task 3 Step 3 and an explicit "replace if different" instruction in Task 5; the sanity check in Task 7 Step 2 catches a wrong field via dark-share. Demographics CSV is a documented manual artifact, not a placeholder.
 
-**Type consistency:** `boroCd` (3-digit string) is the join key everywhere. `MetricKey`/`OverlayKey` defined once in `loadData.ts`, reused in toggles, scatter, intro. `CdMetric`/`Dataset` defined once in `types.ts`. `getMetricValue`, `colorForValue`, `linearRegression`, `lookupCd`, `ghostSentence` signatures match across producer and consumer tasks. `CORRIDOR_NOTES` (metrics.ts) and `MAP` (neighborhoods.ts) agree on corridor codes 303/404/407/410/412.
+**Type consistency:** `boroCd` (3-digit string) is the join key everywhere. `MetricKey`/`OverlayKey` defined once in `loadData.ts`, reused in toggles, scatter, intro. `CdMetric`/`Dataset` defined once in `types.ts`. `getMetricValue`, `colorForValue`, `linearRegression`, `lookupCd`, `ghostSentence` signatures match across producer and consumer tasks. `CORRIDOR_NOTES` (metrics.ts) and `MAP` (neighborhoods.ts) agree on corridor codes 403/404/407/410/412.

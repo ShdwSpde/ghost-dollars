@@ -3,7 +3,7 @@ import type { CapitalAggregate } from "./capital";
 import type { CdMetric, Dataset } from "../types";
 
 export const CORRIDOR_NOTES: Record<string, string> = {
-  "303": "Jackson Heights / North Corona",
+  "403": "Jackson Heights / North Corona",
   "404": "Elmhurst / Corona",
   "407": "Flushing / Willets Point — proposed Metropolitan Park casino",
   "410": "South Ozone Park / Howard Beach — Resorts World + Aqueduct",

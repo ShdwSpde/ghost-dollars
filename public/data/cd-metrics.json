@@ -357,8 +357,7 @@
       "expectedCapital": 815108534.2207805,
       "ghostDollars": 405938559.9707805,
       "perResidentPercentile": 38,
-      "inCorridor": true,
-      "corridorNote": "Jackson Heights / North Corona"
+      "inCorridor": false
     },
     {
       "boroCd": "304",
@@ -592,7 +591,8 @@
       "expectedCapital": 732197442.7671177,
       "ghostDollars": 584999986.4004511,
       "perResidentPercentile": 10,
-      "inCorridor": false
+      "inCorridor": true,
+      "corridorNote": "Jackson Heights / North Corona"
     },
     {
       "boroCd": "404",
