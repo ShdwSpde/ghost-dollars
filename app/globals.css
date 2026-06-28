@@ -1,1 +1,116 @@
-:root { color-scheme: light; }
+:root {
+  color-scheme: dark;
+
+  /* Du Bois data-portrait palette */
+  --bg:       #0d0d0d;   /* dark ground */
+  --surface:  #161616;
+  --ghost:    #e0007a;   /* magenta = absence */
+  --presence: #00b4a0;   /* teal = presence / investment */
+  --signal:   #f5c518;   /* gold accent */
+  --muted:    #555;
+  --text:     #e8e4dc;   /* warm off-white */
+  --text-dim: #999;
+
+  font-family: "Georgia", serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Page shell ─────────────────────────────────────────── */
+
+.atlas {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ghost);
+  flex-shrink: 0;
+}
+
+/* ── Intro scroll narrative ─────────────────────────────── */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.intro-beat {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem 4rem 4rem;
+  max-width: 640px;
+  border-left: 3px solid var(--muted);
+  margin: 0 0 0 2rem;
+  transition: border-color 0.4s;
+}
+
+.intro-beat:hover {
+  border-left-color: var(--ghost);
+}
+
+.intro-beat h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--signal);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.intro-beat p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--text-dim);
+  max-width: 44ch;
+}
+
+/* ── Sticky map stage ───────────────────────────────────── */
+
+.stage {
+  position: sticky;
+  top: 3.5rem;       /* clear the header */
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1rem;
+  height: calc(100vh - 3.5rem);
+  padding: 1rem;
+  background: var(--surface);
+  z-index: 10;
+}
+
+.map-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  min-height: 0;
+}

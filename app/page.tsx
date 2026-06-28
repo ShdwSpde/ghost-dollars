@@ -8,6 +8,7 @@ import { PatternPanel } from "@/components/PatternPanel";
 import { DistrictCard } from "@/components/DistrictCard";
 import { DarkDollarsBanner } from "@/components/DarkDollarsBanner";
 import { HomeSearch } from "@/components/HomeSearch";
+import { IntroScroll } from "@/components/IntroScroll";
 
 export default async function Page() {
   const dataset: Dataset = JSON.parse(await readFile(join(process.cwd(), "public/data/cd-metrics.json"), "utf8"));
@@ -15,6 +16,7 @@ export default async function Page() {
     <AtlasProvider dataset={dataset}>
       <main className="atlas">
         <header><h1>Ghost Dollars</h1><HomeSearch /></header>
+        <IntroScroll />
         <DarkDollarsBanner />
         <section className="stage">
           <div className="map-wrap"><MetricToggle /><MapPanel /></div>
