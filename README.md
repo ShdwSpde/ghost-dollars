@@ -36,7 +36,7 @@ These stack: of all capital, roughly half never reaches the dashboard, and of wh
 |---|---|---|---|
 | Capital spending | NYC Capital Projects Dashboard (NYC Open Data / Socrata) | `fb86-vt7u` | Fields: `community_board`, `total_budget`, `spend_to_date`. Updated ~3×/yr. |
 | Demographics | ACS 2019–2023 5-year, via PUMA-to-CD crosswalk | — | Population, race/ethnicity, median household income by CD. PUMA approximation disclosed above. |
-| CD geometry | NYC Open Data | `yfnk-k7r4` | GeoJSON export, plain download. |
+| CD geometry | NYC Open Data | `5crt-au7u` | GeoJSON export, plain download. (Was `yfnk-k7r4`, retired 2024.) |
 
 ## Refreshing Data
 
