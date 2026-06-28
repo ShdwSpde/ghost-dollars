@@ -67,10 +67,15 @@ UI requirement: the interpretation caveat is part of the layer itself and cannot
 
 ## 6. Methodology — ghost dollars & dark dollars
 
+**Data-grain handling (discovered during build, 2026-06-28 — material, disclosed).** The Capital Projects Dashboard (`fb86-vt7u`) stores one row per project budget-line *per reporting period*, and republishes ~3×/yr, so each project recurs across ~9 periods. Naively summing `total_budget` over all rows over-counts capital ~10× (~$1.6T vs. the real ~$158B). Therefore:
+- Use only the **latest reporting period** (the current commitment-plan snapshot; `202601` at build time, discovered dynamically).
+- **Dedupe** within that period by `fms_id | budget_line` (one budget-line counted once).
+- `community_board` arrives in several formats: `"Bronx 12"`, redundant `"Manhattan, Manhattan 03"`, **multi-CD** `"Manhattan 01, Manhattan 12"`, borough-only `"Brooklyn"`, and `"Citywide"`. A row is parsed into the *list* of placeable CDs it names. **Multi-CD projects split `total_budget` equally** across the listed districts (declared choice; ~3% of latest-period rows). Borough-only and Citywide name no CD → dark.
+
 For each community district *i*:
 
-1. **Visible capital Vᵢ** = sum of placeable capital dollars tagged to CD *i* (Dashboard, current plan window).
-2. **Dark capital** = dollars tagged `Citywide` / `Lump-Sum` / untagged — **excluded** from per-capita math, **reported separately** as the transparency gap. This figure (≈ half) is a headline number, not a footnote.
+1. **Visible capital Vᵢ** = sum of each deduped latest-period row's (possibly split) dollars assigned to CD *i*.
+2. **Dark capital** = dollars on rows naming no placeable CD (`Citywide`, borough-only, empty) — **excluded** from per-capita math, **reported separately** as the transparency gap. This figure is a headline number, not a footnote.
 3. **Parity baseline P** = (Σ Vᵢ over placeable CDs) ÷ (Σ populationᵢ over those CDs) → an equal-per-resident dollar figure. Labeled exactly that: a baseline, **not** an entitlement.
 4. **Expected Eᵢ** = P × populationᵢ.
 5. **Ghost dollars Gᵢ** = Eᵢ − Vᵢ. Positive = under parity (starved); negative = over parity.

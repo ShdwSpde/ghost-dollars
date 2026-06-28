@@ -369,53 +369,98 @@ git commit -m "feat: demographics CSV parser"
 
 ### Task 5: Classify + aggregate capital into visible / dark by CD
 
+> **REVISED 2026-06-28 after inspecting live data.** The Dashboard stores one row per project budget-line *per reporting period* and republishes ~3×/yr; naively summing `total_budget` over all rows over-counts ~10× (~$1.6T vs the real ~$158B). And `community_board` arrives in several formats including redundant-borough (`"Manhattan, Manhattan 03"`) and **multi-CD** (`"Manhattan 01, Manhattan 12"`) strings. The corrected aggregation: (1) keep only the latest `reporting_period`; (2) dedupe by `fms_id | budget_line`; (3) parse `community_board` into the *list* of placeable CDs and split `total_budget` equally across them; borough-only/Citywide → dark. This task also adds a `parseCommunityBoard` helper to `cdId.ts`.
+
 **Files:**
+- Modify: `src/lib/pipeline/cdId.ts` (add `parseCommunityBoard`), `src/lib/pipeline/cdId.test.ts`
 - Create: `src/lib/pipeline/capital.ts`
 - Test: `src/lib/pipeline/capital.test.ts`
 
 **Interfaces:**
 - Consumes: `normalizeCdId`, `isPlaceable` from Task 2.
 - Produces:
-  - `interface CapitalRecord { community_board?: string; total_budget?: string | number; }` (subset of Dashboard fields; **replace field names with the exact ones recorded in Task 3 Step 3 if they differ**).
+  - `parseCommunityBoard(raw: string | null | undefined): string[]` (in `cdId.ts`) — list of distinct placeable `boroCd`s named by a `community_board` string.
+  - `interface CapitalRecord { reporting_period?: string; fms_id?: string; budget_line?: string; community_board?: string; total_budget?: string | number; }` (field names verified against live data in Task 3).
   - `interface CapitalAggregate { visibleByCd: Map<string, number>; totalVisible: number; totalDark: number; }`
   - `aggregateCapital(records: CapitalRecord[]): CapitalAggregate`.
 
-- [ ] **Step 1: Write the failing test**
+- [ ] **Step 1: Add `parseCommunityBoard` tests to `src/lib/pipeline/cdId.test.ts`** (import it alongside the existing imports)
+
+```ts
+import { parseCommunityBoard } from "./cdId";
+
+describe("parseCommunityBoard", () => {
+  it("single CD", () => { expect(parseCommunityBoard("Bronx 12")).toEqual(["212"]); });
+  it("redundant-borough single CD", () => { expect(parseCommunityBoard("Manhattan, Manhattan 03")).toEqual(["103"]); });
+  it("multi-CD list", () => { expect(parseCommunityBoard("Queens 07, Queens 08")).toEqual(["407", "408"]); });
+  it("borough-only -> empty", () => { expect(parseCommunityBoard("Brooklyn")).toEqual([]); });
+  it("citywide -> empty", () => { expect(parseCommunityBoard("Citywide")).toEqual([]); });
+  it("dedups repeated CDs", () => { expect(parseCommunityBoard("Manhattan 03, Manhattan 03")).toEqual(["103"]); });
+  it("empty/null -> empty", () => { expect(parseCommunityBoard("")).toEqual([]); expect(parseCommunityBoard(null)).toEqual([]); });
+});
+```
+
+- [ ] **Step 2: Add `parseCommunityBoard` to `src/lib/pipeline/cdId.ts`**
+
+```ts
+export function parseCommunityBoard(raw: string | null | undefined): string[] {
+  if (raw === null || raw === undefined) return [];
+  const out: string[] = [];
+  for (const seg of String(raw).split(",")) {
+    const cd = normalizeCdId(seg);
+    if (cd && isPlaceable(cd) && !out.includes(cd)) out.push(cd);
+  }
+  return out;
+}
+```
+
+- [ ] **Step 3: Write the failing test `src/lib/pipeline/capital.test.ts`**
 
 ```ts
 import { describe, it, expect } from "vitest";
 import { aggregateCapital } from "./capital";
 
 describe("aggregateCapital", () => {
-  it("sums placeable budgets by CD and pools the rest as dark", () => {
+  it("uses only the latest period, dedups by fms_id|budget_line, splits multi-CD equally, pools the rest as dark", () => {
     const recs = [
-      { community_board: "412", total_budget: "1000" },
-      { community_board: "412", total_budget: "500" },
-      { community_board: "403", total_budget: "2000" },
-      { community_board: "Citywide", total_budget: "9999" }, // dark: unplaceable
-      { community_board: "481", total_budget: "750" },        // dark: Joint Interest Area
-      { community_board: "412", total_budget: "" },           // dark: no amount
+      // older period — must be ignored entirely
+      { reporting_period: "202405", fms_id: "OLD", budget_line: "L1", community_board: "412", total_budget: "99999" },
+      // latest period
+      { reporting_period: "202601", fms_id: "A", budget_line: "L1", community_board: "412", total_budget: "1000" },
+      { reporting_period: "202601", fms_id: "A", budget_line: "L1", community_board: "412", total_budget: "1000" }, // dup -> ignored
+      { reporting_period: "202601", fms_id: "B", budget_line: "L1", community_board: "Manhattan, Manhattan 03", total_budget: "600" }, // single CD via comma
+      { reporting_period: "202601", fms_id: "C", budget_line: "L1", community_board: "Queens 07, Queens 08", total_budget: "400" }, // multi -> 200/200
+      { reporting_period: "202601", fms_id: "D", budget_line: "L1", community_board: "Citywide", total_budget: "5000" }, // dark
+      { reporting_period: "202601", fms_id: "E", budget_line: "L1", community_board: "Brooklyn", total_budget: "700" }, // dark (borough only)
     ];
     const agg = aggregateCapital(recs);
-    expect(agg.visibleByCd.get("412")).toBe(1500);
-    expect(agg.visibleByCd.get("403")).toBe(2000);
-    expect(agg.totalVisible).toBe(3500);
-    expect(agg.totalDark).toBe(9999 + 750); // empty-amount row contributes 0 dollars
+    expect(agg.visibleByCd.get("412")).toBe(1000); // old period + dup both ignored
+    expect(agg.visibleByCd.get("103")).toBe(600);  // Manhattan 03
+    expect(agg.visibleByCd.get("407")).toBe(200);  // Queens 07 half
+    expect(agg.visibleByCd.get("408")).toBe(200);  // Queens 08 half
+    expect(agg.totalVisible).toBe(2000);           // 1000 + 600 + 400
+    expect(agg.totalDark).toBe(5700);              // 5000 + 700
   });
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [ ] **Step 4: Run test to verify it fails**
 
 Run: `npx vitest run src/lib/pipeline/capital.test.ts`
 Expected: FAIL ("Cannot find module './capital'").
 
-- [ ] **Step 3: Write minimal implementation**
+- [ ] **Step 5: Write `src/lib/pipeline/capital.ts`**
 
 ```ts
-import { normalizeCdId, isPlaceable } from "./cdId";
+import { parseCommunityBoard } from "./cdId";
 
-export interface CapitalRecord { community_board?: string; total_budget?: string | number; }
+export interface CapitalRecord {
+  reporting_period?: string;
+  fms_id?: string;
+  budget_line?: string;
+  community_board?: string;
+  total_budget?: string | number;
+}
 export interface CapitalAggregate {
   visibleByCd: Map<string, number>;
   totalVisible: number;
@@ -429,14 +474,27 @@ const amount = (v: string | number | undefined): number => {
 };
 
 export function aggregateCapital(records: CapitalRecord[]): CapitalAggregate {
+  // 1. Keep only the latest reporting period (defensive — the fetch already scopes to it).
+  const periods = records.map((r) => r.reporting_period).filter(Boolean) as string[];
+  const latest = periods.length ? periods.reduce((a, b) => (b > a ? b : a)) : undefined;
+  const scoped = latest ? records.filter((r) => r.reporting_period === latest) : records;
+
+  // 2. Dedupe by fms_id|budget_line; 3. split each row's dollars across its placeable CDs.
+  const seen = new Set<string>();
   const visibleByCd = new Map<string, number>();
   let totalVisible = 0, totalDark = 0;
-  for (const r of records) {
+  for (const r of scoped) {
+    const key = `${r.fms_id ?? ""}|${r.budget_line ?? ""}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
     const dollars = amount(r.total_budget);
-    const boroCd = normalizeCdId(r.community_board);
-    if (boroCd && isPlaceable(boroCd)) {
-      visibleByCd.set(boroCd, (visibleByCd.get(boroCd) ?? 0) + dollars);
-      totalVisible += dollars;
+    const cds = parseCommunityBoard(r.community_board);
+    if (cds.length > 0) {
+      const share = dollars / cds.length;
+      for (const cd of cds) {
+        visibleByCd.set(cd, (visibleByCd.get(cd) ?? 0) + share);
+        totalVisible += share;
+      }
     } else {
       totalDark += dollars;
     }
@@ -445,16 +503,16 @@ export function aggregateCapital(records: CapitalRecord[]): CapitalAggregate {
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [ ] **Step 6: Run tests to verify they pass**
 
-Run: `npx vitest run src/lib/pipeline/capital.test.ts`
-Expected: PASS.
+Run: `npx vitest run src/lib/pipeline/cdId.test.ts src/lib/pipeline/capital.test.ts`
+Expected: PASS (existing cdId tests + new parseCommunityBoard tests + the aggregate test).
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
-git add src/lib/pipeline/capital.ts src/lib/pipeline/capital.test.ts
-git commit -m "feat: classify and aggregate capital into visible vs dark"
+git add src/lib/pipeline/cdId.ts src/lib/pipeline/cdId.test.ts src/lib/pipeline/capital.ts src/lib/pipeline/capital.test.ts
+git commit -m "feat: aggregate capital by latest period, dedup, multi-CD split"
 ```
 
 ---
