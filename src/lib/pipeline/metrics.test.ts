@@ -37,4 +37,16 @@ describe("buildMetrics", () => {
     expect(cd412.visibleCapital).toBe(0);
     expect(cd412.ghostDollars).toBe(cd412.expectedCapital);
   });
+  it("computes parity over only placeable CDs even when totalVisible includes capital from CDs absent in demographics", () => {
+    const agg = {
+      visibleByCd: new Map([["412", 100], ["403", 300], ["118", 600]]), // 118 is not in demo
+      totalVisible: 1000, // includes the phantom 600 from CD 118
+      totalDark: 0,
+    };
+    const ds = buildMetrics(demo, agg);
+    // parity must use only 412+403 visible (400) / pop (200) = 2, NOT 1000/200 = 5
+    expect(ds.meta.parityPerResident).toBe(2);
+    // but meta.totalVisibleCapital still reports the full visible universe
+    expect(ds.meta.totalVisibleCapital).toBe(1000);
+  });
 });

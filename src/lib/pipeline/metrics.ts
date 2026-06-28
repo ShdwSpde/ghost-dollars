@@ -13,7 +13,8 @@ export const CORRIDOR_NOTES: Record<string, string> = {
 export function buildMetrics(demo: Map<string, Demographics>, agg: CapitalAggregate): Dataset {
   const placeable = [...demo.values()].filter((d) => d.population > 0);
   const totalPop = placeable.reduce((s, d) => s + d.population, 0);
-  const parityPerResident = totalPop > 0 ? agg.totalVisible / totalPop : 0;
+  const totalVisiblePlaceable = placeable.reduce((s, d) => s + (agg.visibleByCd.get(d.boroCd) ?? 0), 0);
+  const parityPerResident = totalPop > 0 ? totalVisiblePlaceable / totalPop : 0;
 
   // Per-resident values first, to rank into percentiles.
   const withPerResident = placeable.map((d) => {
