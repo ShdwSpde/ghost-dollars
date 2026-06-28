@@ -114,7 +114,15 @@ Map ↔ scatter ↔ card all cross-highlight.
 ## 9. Phasing
 
 - **Phase 1 (ship):** Capital + demographics, all 59 CDs, flat parity baseline, ghost + dark dollars, authored corridor intro, find-your-home, three coordinated panels. Static data artifact.
-- **Phase 2 (architected-for):** vice-infrastructure markers; 311 attention-vs-investment lens (with caveat); council-district discretionary-capital view; need-weighted baseline toggle; "revenue generated here vs. invested here" casino panel.
+- **Phase 1.5 (real-demographics unlock — in progress):** replace the stub demographics with real ACS 2019–2023 by CD, including **% foreign-born** and **% limited-English** (the direct test of "immigrant neighborhoods"). Until this lands, per-resident percentiles are provisional. *(Layer #4 — being sourced in parallel.)*
+- **Phase 2 confirmed roadmap (owner-approved 2026-06-28, in priority order):**
+  1. **Capital by category/agency** ("what kind of money?") — regroup `ten_year_plan_category` + `managing_agency` (already in our data) to test whether above-parity districts (Jamaica, Flushing) get *resident-serving* capital (schools/parks/libraries) vs *regional* capital (transit/economic-development). Defends the thesis against its own exceptions. **Near-free.**
+  2. **Budgeted vs. spent** ("promised vs. delivered") — use `total_budget` vs `spend_to_date` (already in our data) to surface capital announced but never delivered. **Near-free.**
+  3. **Time series** ("does new money hit some districts first?" — the owner's original question) — re-fetch the 8 discarded reporting periods (2023→2026) as a per-district timeline.
+  5. **311 attention-vs-investment** (surveillance layer) — per-capita complaint volume (incl. vice-adjacent types) vs per-capita capital; *caveat locked to the layer* per §5.
+  6. **Vice-infrastructure + "revenue leaves"** — Resorts World / Aqueduct / proposed Metropolitan Park markers; state gaming revenue routed to the state (not the host district).
+  - (Original Phase-2 items retained: council-district discretionary-capital view; need-weighted baseline toggle.)
+  - **Tier-3 backlog (resonant, domain datasets):** flood risk vs resilience capital (SE Queens); school overcrowding vs school capital.
 
 ## 10. Risks & open questions
 
