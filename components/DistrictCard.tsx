@@ -2,6 +2,7 @@
 import { useAtlas } from "./AtlasProvider";
 import { BOROUGH_BY_DIGIT } from "@/src/lib/pipeline/cdId";
 import { fmtUsd, fmtPct, ghostSentence, ordinal } from "@/src/lib/format";
+import { Receipt } from "./Receipt";
 
 // The signature device: ghost dollars drawn as visible negative space.
 // Solid cobalt = capital received; hollow vermilion-outlined extension = the
@@ -76,6 +77,7 @@ export function DistrictCard() {
         <div><dt>% BIPOC</dt><dd>{fmtPct(cd.pctBipoc)}</dd></div>
       </dl>
       <p className="ghost-sentence">{ghostSentence(cd)}</p>
+      <Receipt cd={cd} />
     </aside>
   );
 }
