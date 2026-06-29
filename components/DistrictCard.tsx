@@ -138,14 +138,8 @@ function KindOfMoney({ spendByBucket, topCategories }: {
       )}
 
       <p className="kind-disclosure">
-        Classified by managing agency — a coarse, disclosed split.{" "}
-        <a
-          href="https://github.com/your-org/ghost-dollars#agency-classification"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          See methodology
-        </a>.
+        Classified by managing agency — a coarse, disclosed split. Citywide
+        agencies (DEP water/sewer, DDC, DOT, EDC) drive most “regional” spend.
       </p>
     </div>
   );
