@@ -10,6 +10,7 @@ import { DarkDollarsBanner } from "@/components/DarkDollarsBanner";
 import { HomeSearch } from "@/components/HomeSearch";
 import { IntroScroll } from "@/components/IntroScroll";
 import { Hero } from "@/components/Hero";
+import { Manifesto } from "@/components/Manifesto";
 import { ALL_NEIGHBORHOOD_IMAGES } from "@/src/lib/neighborhoodImages";
 
 export default async function Page() {
@@ -22,13 +23,15 @@ export default async function Page() {
           <HomeSearch />
         </header>
 
+        <Manifesto />
+
         <Hero meta={dataset.meta} />
 
         <IntroScroll />
 
         <DarkDollarsBanner />
 
-        <section className="explorer" aria-label="District explorer">
+        <section id="explorer" className="explorer" aria-label="District explorer">
           <h2 className="explorer-head">Explore every district</h2>
           <p className="explorer-lede">
             Switch the metric, drop in a demographic overlay, and click any
