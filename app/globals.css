@@ -143,6 +143,13 @@ header h1 {
   padding: 4rem 2.5rem 4rem 1.5rem; max-width: 640px;
   border-left: 4px solid var(--cream-2);
 }
+/* Duotone photo sits above beat copy, bleeds to the beat left edge */
+.beat-photo {
+  margin: 0 0 1.25rem -1.5rem;
+  width: calc(100% + 1.5rem);
+  max-width: calc(640px + 1.5rem);
+  border: 2px solid var(--ink);
+}
 .intro-beat[data-active="true"] { border-left-color: var(--vermilion); }
 .intro-beat .beat-tag {
   font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.16em;
@@ -345,6 +352,108 @@ header h1 {
   border: 2px solid var(--cream); justify-self: start;
 }
 .footer a { color: var(--marigold); }
+
+/* ── Duotone photo treatment — Mamdani civic poster ─────── */
+/*
+ * Usage:
+ *   <div class="duotone">
+ *     <img src="..." alt="..." />
+ *   </div>
+ *
+ * Technique: grayscale the photo, then overlay a cobalt→vermilion
+ * gradient with mix-blend-mode:color to tint it into the palette.
+ * The ::after overlay is aria-hidden at the DOM level when used in JSX.
+ */
+
+.duotone {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  /* Clamp aspect to a cinematic band — keeps beats legible */
+  aspect-ratio: 16 / 7;
+}
+
+/* The actual photo — grayscale + slight contrast punch */
+.duotone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  transition: filter 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .duotone img { transition: none; }
+}
+
+/* Duotone color wash: cobalt shadows → vermilion highlights */
+.duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* cobalt at low end (darks), vermilion/marigold blend at highlights */
+  background: linear-gradient(
+    135deg,
+    rgba(30, 44, 140, 0.82) 0%,     /* cobalt — shadows */
+    rgba(30, 44, 140, 0.55) 35%,
+    rgba(234, 59, 34, 0.45) 70%,     /* vermilion — midtones */
+    rgba(247, 178, 27, 0.35) 100%    /* marigold — highlights */
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+/* Optional variant: card-header crop (square-ish, top-third crop) */
+.duotone-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 5;
+  width: calc(100% + 2.5rem);
+  margin: -1.25rem -1.25rem 1rem;
+}
+
+.duotone-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(1) contrast(1.1) brightness(0.88);
+}
+
+.duotone-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 44, 140, 0.80) 0%,
+    rgba(30, 44, 140, 0.52) 40%,
+    rgba(234, 59, 34, 0.42) 75%,
+    rgba(247, 178, 27, 0.30) 100%
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+/* Caption band overlaid at the bottom of a duotone image */
+.duotone-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.35rem 0.6rem;
+  background: rgba(24, 26, 46, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--marigold);
+  line-height: 1.3;
+}
 
 /* ── MapLibre attribution legibility on cream ───────────── */
 .maplibregl-ctrl-attrib {

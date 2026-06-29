@@ -10,6 +10,7 @@ import { DarkDollarsBanner } from "@/components/DarkDollarsBanner";
 import { HomeSearch } from "@/components/HomeSearch";
 import { IntroScroll } from "@/components/IntroScroll";
 import { Hero } from "@/components/Hero";
+import { ALL_NEIGHBORHOOD_IMAGES } from "@/src/lib/neighborhoodImages";
 
 export default async function Page() {
   const dataset: Dataset = JSON.parse(await readFile(join(process.cwd(), "public/data/cd-metrics.json"), "utf8"));
@@ -68,6 +69,26 @@ export default async function Page() {
               This is a preview built on partial, published data — it surfaces a
               pattern, not a precise ledger.
             </p>
+
+            <h3>Photo credits</h3>
+            <p style={{ fontSize: "0.82rem", lineHeight: 1.7, maxWidth: "70ch" }}>
+              Neighborhood photography sourced from{" "}
+              <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer">
+                Wikimedia Commons
+              </a>
+              {" "}under Creative Commons and Public Domain licenses.
+            </p>
+            <ul style={{ fontSize: "0.78rem", lineHeight: 1.7, listStyle: "none", maxWidth: "70ch" }}>
+              {Object.entries(ALL_NEIGHBORHOOD_IMAGES).map(([boroCd, img]) => (
+                <li key={boroCd} style={{ borderTop: "1px solid rgba(243,233,211,0.15)", paddingTop: "0.2rem" }}>
+                  <strong style={{ color: "var(--marigold)" }}>CD{boroCd}:</strong>{" "}
+                  <a href={img.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    {img.credit}
+                  </a>
+                  {" "}— {img.license}
+                </li>
+              ))}
+            </ul>
           </div>
         </footer>
       </main>

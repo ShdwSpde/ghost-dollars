@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAtlas } from "./AtlasProvider";
 import { MapPanel } from "./MapPanel";
 import { INTRO_STEPS } from "@/src/lib/introSteps";
+import { neighborhoodImage } from "@/src/lib/neighborhoodImages";
 
 const METRIC_LABEL: Record<string, string> = {
   actual: "Actual capital $",
@@ -45,21 +46,36 @@ export function IntroScroll() {
         </div>
       </div>
       <div className="scrolly-beats">
-        {INTRO_STEPS.map((s, i) => (
-          <section
-            key={s.boroCd}
-            data-i={i}
-            data-active={active === i}
-            ref={(el) => {
-              refs.current[i] = el;
-            }}
-            className="intro-beat"
-          >
-            <p className="beat-tag">Stop {i + 1} of {INTRO_STEPS.length}</p>
-            <h2>{s.headline}</h2>
-            <p>{s.body}</p>
-          </section>
-        ))}
+        {INTRO_STEPS.map((s, i) => {
+          const img = neighborhoodImage(s.boroCd);
+          return (
+            <section
+              key={s.boroCd}
+              data-i={i}
+              data-active={active === i}
+              ref={(el) => {
+                refs.current[i] = el;
+              }}
+              className="intro-beat"
+            >
+              {img && (
+                <div className="duotone beat-photo" role="presentation">
+                  {/* aria-hidden on overlay handled via CSS ::after — no DOM node needed */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+              <p className="beat-tag">Stop {i + 1} of {INTRO_STEPS.length}</p>
+              <h2>{s.headline}</h2>
+              <p>{s.body}</p>
+            </section>
+          );
+        })}
       </div>
     </section>
   );

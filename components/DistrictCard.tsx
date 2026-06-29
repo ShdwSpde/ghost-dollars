@@ -3,6 +3,7 @@ import { useAtlas } from "./AtlasProvider";
 import { BOROUGH_BY_DIGIT } from "@/src/lib/pipeline/cdId";
 import { fmtUsd, fmtPct, ghostSentence, ordinal } from "@/src/lib/format";
 import { referenceNote } from "@/src/lib/referenceDistricts";
+import { neighborhoodImage } from "@/src/lib/neighborhoodImages";
 import { Receipt } from "./Receipt";
 import { CasinoOdds } from "./CasinoOdds";
 
@@ -63,8 +64,20 @@ export function DistrictCard() {
   if (!selectedCd) return <aside className="card empty">Click a district to see what it lost.</aside>;
   const cd = dataset.cds.find((c) => c.boroCd === selectedCd);
   if (!cd) return <aside className="card empty">No data for this district.</aside>;
+  const photo = neighborhoodImage(cd.boroCd);
   return (
     <aside className="card" aria-live="polite">
+      {photo && (
+        <div className="duotone-card" role="presentation">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )}
       <button className="close" onClick={()=>setSelectedCd(null)} aria-label="Close">×</button>
       <h2>{BOROUGH_BY_DIGIT[cd.boroCd[0]]} CD{parseInt(cd.boroCd.slice(1),10)}</h2>
       {cd.corridorNote && <p className="corridor">{cd.corridorNote}</p>}
