@@ -322,6 +322,80 @@ header h1 {
   color: var(--ink); border-top: 2px solid var(--ink); padding-top: 0.75rem;
 }
 
+/* ── "What kind of money" — capital-by-category section ─── */
+
+.kind-money {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--ink);
+  background: var(--cream-2);
+}
+.kind-money-eyebrow {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--cobalt); margin-bottom: 0.35rem;
+}
+.kind-money-lede {
+  font-family: var(--font-body); font-size: 0.88rem; line-height: 1.45;
+  color: var(--ink); margin-bottom: 0.6rem;
+}
+.kind-money-lede strong { font-weight: 700; }
+
+/* Segmented bar */
+.kind-bar {
+  display: flex; height: 28px; width: 100%;
+  border: 2px solid var(--ink); overflow: hidden; margin-bottom: 0.3rem;
+}
+.kind-seg {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 2px; transition: flex 0.25s ease;
+}
+.kind-seg--nb { background: var(--cobalt); }
+.kind-seg--cw { background: var(--vermilion); }
+.kind-seg--ot { background: var(--clay); opacity: 0.55; }
+.kind-seg-label {
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700;
+  color: var(--cream); white-space: nowrap; padding: 0 0.25rem;
+}
+
+/* Legend */
+.kind-legend {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1rem;
+  margin-bottom: 0.6rem;
+}
+.kind-legend-item {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink);
+}
+.kind-legend-item--nb { color: var(--cobalt); }
+.kind-legend-item--cw { color: var(--vermilion); }
+.kind-legend-item--ot { color: var(--clay); }
+
+/* Top categories list */
+.kind-cats {
+  list-style: none; margin: 0 0 0.5rem; padding: 0;
+  display: grid; gap: 0.2rem;
+}
+.kind-cat {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 0.5rem; border-top: 1px solid rgba(24,26,46,0.12); padding-top: 0.2rem;
+}
+.kind-cat:first-child { border-top: none; }
+.kind-cat-name {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.03em;
+  text-transform: uppercase; color: var(--ink); flex: 1; line-height: 1.3;
+}
+.kind-cat-amt {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+  color: var(--cobalt); white-space: nowrap;
+}
+
+/* Disclosure line */
+.kind-disclosure {
+  font-family: var(--font-body); font-size: 0.72rem; color: var(--clay);
+  margin-top: 0.4rem; line-height: 1.4;
+}
+.kind-disclosure a { color: var(--clay); }
+
 /* ── Caveat ─────────────────────────────────────────────── */
 
 .caveat {

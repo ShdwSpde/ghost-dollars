@@ -8,6 +8,7 @@ import { neighborhoodImage } from "@/src/lib/neighborhoodImages";
 import { Receipt } from "./Receipt";
 import { CasinoOdds } from "./CasinoOdds";
 import { TradingCard } from "./TradingCard";
+import type { SpendByBucket } from "@/src/lib/types";
 
 // The signature device: ghost dollars drawn as visible negative space.
 // Solid cobalt = capital received; hollow vermilion-outlined extension = the
@@ -61,6 +62,95 @@ function GhostBar({ visible, expected, ghost }: { visible: number; expected: num
   );
 }
 
+function pct(n: number, total: number) {
+  if (total <= 0) return "0";
+  return Math.round((n / total) * 100).toString();
+}
+
+function KindOfMoney({ spendByBucket, topCategories }: {
+  spendByBucket: SpendByBucket;
+  topCategories: { category: string; amount: number }[];
+}) {
+  const total = spendByBucket.neighborhood + spendByBucket.citywide + spendByBucket.other;
+  if (total <= 0) return null;
+
+  const nbPct  = Math.round((spendByBucket.neighborhood / total) * 100);
+  const cwPct  = Math.round((spendByBucket.citywide / total) * 100);
+  const othPct = 100 - nbPct - cwPct;
+
+  return (
+    <div className="kind-money" aria-label="Capital by type">
+      <p className="kind-money-eyebrow">What kind of money</p>
+      <p className="kind-money-lede">
+        Of this district&rsquo;s visible capital,{" "}
+        <strong>{nbPct}%</strong> is neighborhood-serving and{" "}
+        <strong>{cwPct}%</strong> citywide/regional.
+      </p>
+
+      {/* Segmented bar */}
+      <div className="kind-bar" role="img" aria-label={`${nbPct}% neighborhood-serving, ${cwPct}% citywide/regional`}>
+        {spendByBucket.neighborhood > 0 && (
+          <div
+            className="kind-seg kind-seg--nb"
+            style={{ flex: spendByBucket.neighborhood }}
+            title={`Neighborhood-serving: ${nbPct}%`}
+          >
+            {nbPct >= 8 && <span className="kind-seg-label">{nbPct}%</span>}
+          </div>
+        )}
+        {spendByBucket.citywide > 0 && (
+          <div
+            className="kind-seg kind-seg--cw"
+            style={{ flex: spendByBucket.citywide }}
+            title={`Citywide/regional: ${cwPct}%`}
+          >
+            {cwPct >= 8 && <span className="kind-seg-label">{cwPct}%</span>}
+          </div>
+        )}
+        {spendByBucket.other > 0 && (
+          <div
+            className="kind-seg kind-seg--ot"
+            style={{ flex: spendByBucket.other }}
+            title={`Other/unclassified: ${othPct}%`}
+          >
+            {othPct >= 8 && <span className="kind-seg-label">{othPct}%</span>}
+          </div>
+        )}
+      </div>
+
+      <div className="kind-legend">
+        <span className="kind-legend-item kind-legend-item--nb">■ Neighborhood-serving</span>
+        <span className="kind-legend-item kind-legend-item--cw">■ Citywide/regional</span>
+        {spendByBucket.other > 0 && (
+          <span className="kind-legend-item kind-legend-item--ot">■ Other</span>
+        )}
+      </div>
+
+      {topCategories.length > 0 && (
+        <ol className="kind-cats">
+          {topCategories.map(({ category, amount }) => (
+            <li key={category} className="kind-cat">
+              <span className="kind-cat-name">{category}</span>
+              <span className="kind-cat-amt">{fmtUsd(amount)}</span>
+            </li>
+          ))}
+        </ol>
+      )}
+
+      <p className="kind-disclosure">
+        Classified by managing agency — a coarse, disclosed split.{" "}
+        <a
+          href="https://github.com/your-org/ghost-dollars#agency-classification"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          See methodology
+        </a>.
+      </p>
+    </div>
+  );
+}
+
 export function DistrictCard() {
   const { dataset, selectedCd, setSelectedCd } = useAtlas();
   const [showCard, setShowCard] = useState(false);
@@ -92,6 +182,7 @@ export function DistrictCard() {
         </div>
       )}
       <GhostBar visible={cd.visibleCapital} expected={cd.expectedCapital} ghost={cd.ghostDollars} />
+      <KindOfMoney spendByBucket={cd.spendByBucket} topCategories={cd.topCategories} />
       <dl>
         <div><dt>Visible capital</dt><dd>{fmtUsd(cd.visibleCapital)}</dd></div>
         <div><dt>Expected at parity</dt><dd>{fmtUsd(cd.expectedCapital)}</dd></div>

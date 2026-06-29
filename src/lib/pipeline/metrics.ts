@@ -1,6 +1,6 @@
 import type { Demographics } from "./demographics";
 import type { CapitalAggregate } from "./capital";
-import type { CdMetric, Dataset } from "../types";
+import type { CdMetric, Dataset, SpendByBucket } from "../types";
 
 export const CORRIDOR_NOTES: Record<string, string> = {
   "403": "Jackson Heights / North Corona",
@@ -30,6 +30,22 @@ export function buildMetrics(demo: Map<string, Demographics>, agg: CapitalAggreg
 
   const cds: CdMetric[] = withPerResident.map(({ d, visibleCapital, perResidentCapital }) => {
     const expectedCapital = parityPerResident * d.population;
+
+    // Bucket split (additive — does not touch parity/ghost math)
+    const rawBuckets = agg.bucketsByCd?.get(d.boroCd);
+    const spendByBucket: SpendByBucket = rawBuckets
+      ? { neighborhood: rawBuckets.neighborhood, citywide: rawBuckets.citywide, other: rawBuckets.other }
+      : { neighborhood: 0, citywide: 0, other: 0 };
+
+    // Top 3 categories by $
+    const catMap = agg.rawCategoryByCd?.get(d.boroCd);
+    const topCategories = catMap
+      ? [...catMap.entries()]
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 3)
+          .map(([category, amount]) => ({ category, amount }))
+      : [];
+
     return {
       boroCd: d.boroCd,
       population: d.population,
@@ -43,6 +59,8 @@ export function buildMetrics(demo: Map<string, Demographics>, agg: CapitalAggreg
       perResidentPercentile: percentileByCd.get(d.boroCd) ?? 0,
       inCorridor: d.boroCd in CORRIDOR_NOTES,
       corridorNote: CORRIDOR_NOTES[d.boroCd],
+      spendByBucket,
+      topCategories,
     };
   });
 

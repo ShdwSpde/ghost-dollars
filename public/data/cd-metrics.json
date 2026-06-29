@@ -19,7 +19,26 @@
       "expectedCapital": 714663948.7842786,
       "ghostDollars": -2825921858.215721,
       "perResidentPercentile": 100,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 114092171,
+        "citywide": 3426493636,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "MISCELLANEOUS ENERGY EFFICIENCY AND SUSTAINABILITY",
+          "amount": 1143766388
+        },
+        {
+          "category": "REHABILITATION OF CITY-OWNED OFFICE SPACE",
+          "amount": 887017211
+        },
+        {
+          "category": "LEGAL MANDATES AND CORRECTION OF UNSAFE CONDITIONS",
+          "amount": 279433908
+        }
+      ]
     },
     {
       "boroCd": "102",
@@ -32,7 +51,26 @@
       "expectedCapital": 714663948.7842786,
       "ghostDollars": 648123784.4033263,
       "perResidentPercentile": 3,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 29929830.714285716,
+        "citywide": 36610333.66666667,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "IMPROVEMENTS TO EXISTING FACILITIES",
+          "amount": 14746459
+        },
+        {
+          "category": "MISCELLANEOUS ENERGY EFFICIENCY AND SUSTAINABILITY",
+          "amount": 12187306
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 8577825
+        }
+      ]
     },
     {
       "boroCd": "103",
@@ -45,7 +83,26 @@
       "expectedCapital": 693056788.4583405,
       "ghostDollars": 123046426.7916739,
       "perResidentPercentile": 57,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 322135339,
+        "citywide": 247875022.6666667,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "MAJOR OR PARTIAL HOSPITAL RECONSTRUCTION",
+          "amount": 243229055
+        },
+        {
+          "category": "MISCELLANEOUS ENERGY EFFICIENCY AND SUSTAINABILITY",
+          "amount": 123991762
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 78913612
+        }
+      ]
     },
     {
       "boroCd": "104",
@@ -58,7 +115,26 @@
       "expectedCapital": 529436465.161547,
       "ghostDollars": 22083594.11392796,
       "perResidentPercentile": 59,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 33515507.54761905,
+        "citywide": 473837363.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "LARGE, MAJOR AND REGIONAL PARK RECONSTRUCTION",
+          "amount": 93475415.33333333
+        },
+        {
+          "category": "WATERFRONT DEVELOPMENT",
+          "amount": 89499020
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 76776503
+        }
+      ]
     },
     {
       "boroCd": "105",
@@ -71,7 +147,26 @@
       "expectedCapital": 890595696.5563871,
       "ghostDollars": 496952947.00876796,
       "perResidentPercentile": 31,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 9438960.047619047,
+        "citywide": 384203789.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 147735213
+        },
+        {
+          "category": "PRIMARY STREET RECONSTRUCTION",
+          "amount": 84752177
+        },
+        {
+          "category": "UTILITY RELOCATION FOR SE AND WM PROJECTS",
+          "amount": 63842351
+        }
+      ]
     },
     {
       "boroCd": "106",
@@ -84,7 +179,26 @@
       "expectedCapital": 890595696.5563871,
       "ghostDollars": 451942979.2230537,
       "perResidentPercentile": 36,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 23389463.000000004,
+        "citywide": 415263254.3333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 145797927
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 88874470.5
+        },
+        {
+          "category": "Traffic Work in Conjunction with Fair Bridges",
+          "amount": 57099375
+        }
+      ]
     },
     {
       "boroCd": "107",
@@ -97,7 +211,26 @@
       "expectedCapital": 989078049.814304,
       "ghostDollars": 541813027.2666849,
       "perResidentPercentile": 33,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 103418169.04761906,
+        "citywide": 343846853.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "Park Pedestrian Bridges",
+          "amount": 213338156
+        },
+        {
+          "category": "SOLID WASTE MANAGEMENT",
+          "amount": 50209433.5
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 37818983
+        }
+      ]
     },
     {
       "boroCd": "108",
@@ -110,7 +243,26 @@
       "expectedCapital": 959902279.6566812,
       "ghostDollars": 810229920.4900146,
       "perResidentPercentile": 9,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 11603356.333333334,
+        "citywide": 138069002.83333334,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 39917729.5
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 24888664
+        },
+        {
+          "category": "Waterfront Infrastructure",
+          "amount": 19777148.333333332
+        }
+      ]
     },
     {
       "boroCd": "109",
@@ -123,7 +275,26 @@
       "expectedCapital": 509881962.46021146,
       "ghostDollars": -1025774226.5874074,
       "perResidentPercentile": 93,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 21831329.214285716,
+        "citywide": 1513824859.8333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 1030490336
+        },
+        {
+          "category": "PLANT COMPONENT STABILIZATION",
+          "amount": 355037536
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 34850996
+        }
+      ]
     },
     {
       "boroCd": "110",
@@ -136,7 +307,26 @@
       "expectedCapital": 609887984.4835273,
       "ghostDollars": 360323145.10257494,
       "perResidentPercentile": 28,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 80144844.04761904,
+        "citywide": 169419995.33333334,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 160595500
+        },
+        {
+          "category": "ROUTINE RECONSTRUCTION",
+          "amount": 62511701
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 12074913
+        }
+      ]
     },
     {
       "boroCd": "111",
@@ -149,7 +339,26 @@
       "expectedCapital": 562893880.1881095,
       "ghostDollars": -310507090.9785571,
       "perResidentPercentile": 83,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 145572133.33333337,
+        "citywide": 727828837.8333334,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 395878512
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 163686831
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 81165947
+        }
+      ]
     },
     {
       "boroCd": "112",
@@ -162,7 +371,26 @@
       "expectedCapital": 900275740.5525857,
       "ghostDollars": 328556464.8383,
       "perResidentPercentile": 52,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 170746414.71428573,
+        "citywide": 400972861,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 176994821
+        },
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 171619658
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 52211971
+        }
+      ]
     },
     {
       "boroCd": "201",
@@ -175,7 +403,26 @@
       "expectedCapital": 703392416.9381678,
       "ghostDollars": -145943678.3118322,
       "perResidentPercentile": 72,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 58194647,
+        "citywide": 791141448.25,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "RECONSTRUCTION/RENOVATION OF COURT FACILITIES",
+          "amount": 215651406
+        },
+        {
+          "category": "MISCELLANEOUS ENERGY EFFICIENCY AND SUSTAINABILITY",
+          "amount": 133179904
+        },
+        {
+          "category": "REHABILITATION OF CITY-OWNED OFFICE SPACE",
+          "amount": 109288300
+        }
+      ]
     },
     {
       "boroCd": "202",
@@ -188,7 +435,26 @@
       "expectedCapital": 703392416.9381678,
       "ghostDollars": 252462217.4715011,
       "perResidentPercentile": 53,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 63198395.666666664,
+        "citywide": 387731803.8,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 324947745
+        },
+        {
+          "category": "PLANT COMPONENT STABILIZATION",
+          "amount": 58062058.8
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 57542204
+        }
+      ]
     },
     {
       "boroCd": "203",
@@ -201,7 +467,26 @@
       "expectedCapital": 791417067.3641335,
       "ghostDollars": 678603100.8641335,
       "perResidentPercentile": 5,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 102467451,
+        "citywide": 10346515.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ROUTINE RECONSTRUCTION",
+          "amount": 55000000
+        },
+        {
+          "category": "NEW FACILITIES AND RENOVATIONS",
+          "amount": 14412732
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 14124185
+        }
+      ]
     },
     {
       "boroCd": "204",
@@ -214,7 +499,26 @@
       "expectedCapital": 676522495.6539973,
       "ghostDollars": -45464248.762669325,
       "perResidentPercentile": 69,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 133338005,
+        "citywide": 588648739.4166666,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 171342748
+        },
+        {
+          "category": "Buildings, Recreational Facilities and Pools",
+          "amount": 162277403
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 99923929
+        }
+      ]
     },
     {
       "boroCd": "205",
@@ -227,7 +531,26 @@
       "expectedCapital": 605384797.2718439,
       "ghostDollars": 284761835.3551772,
       "perResidentPercentile": 43,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 20230087.166666664,
+        "citywide": 300392874.75,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 186142153
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 49509624.666666664
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 36392451.5
+        }
+      ]
     },
     {
       "boroCd": "206",
@@ -240,7 +563,26 @@
       "expectedCapital": 791417067.3641335,
       "ghostDollars": 494384496.06413347,
       "perResidentPercentile": 21,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 98174326.33333333,
+        "citywide": 198858244.96666667,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 56799552.333333336
+        },
+        {
+          "category": "REHABILITATION OF CITY-OWNED OFFICE SPACE",
+          "amount": 48548199
+        },
+        {
+          "category": "TRAFFIC WORK IN CONJUNCTION WITH HIGHWAY RECONSTRUCTION",
+          "amount": 42225407
+        }
+      ]
     },
     {
       "boroCd": "207",
@@ -253,7 +595,26 @@
       "expectedCapital": 600122036.3136117,
       "ghostDollars": -1094980105.7697215,
       "perResidentPercentile": 91,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 51245621.166666664,
+        "citywide": 1643856520.9166665,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "CROTON FILTER PROJECT",
+          "amount": 1495898273
+        },
+        {
+          "category": "WATER QUALITY PRESERVATION",
+          "amount": 93168130
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 29679223
+        }
+      ]
     },
     {
       "boroCd": "208",
@@ -266,7 +627,26 @@
       "expectedCapital": 446231491.00832665,
       "ghostDollars": -1208563501.9916735,
       "perResidentPercentile": 97,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 43917711.66666667,
+        "citywide": 1610877281.3333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "CROTON FILTER PROJECT",
+          "amount": 1495898273
+        },
+        {
+          "category": "PRIMARY STREET RECONSTRUCTION",
+          "amount": 74091526
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 37656833
+        }
+      ]
     },
     {
       "boroCd": "209",
@@ -279,7 +659,26 @@
       "expectedCapital": 771573203.2355412,
       "ghostDollars": 373360008.9355412,
       "perResidentPercentile": 41,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 68580185.66666666,
+        "citywide": 329633008.6333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 161013720.5
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 65855000
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 58419381
+        }
+      ]
     },
     {
       "boroCd": "210",
@@ -292,7 +691,26 @@
       "expectedCapital": 580617267.6075859,
       "ghostDollars": -295700002.22574735,
       "perResidentPercentile": 79,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 34778196,
+        "citywide": 841539073.8333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 722707708.5
+        },
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 33954507
+        },
+        {
+          "category": "POLICE FACILITIES",
+          "amount": 32108094
+        }
+      ]
     },
     {
       "boroCd": "211",
@@ -305,7 +723,26 @@
       "expectedCapital": 515343659.3996827,
       "ghostDollars": 193053437.433016,
       "perResidentPercentile": 50,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 55257345.66666667,
+        "citywide": 267032876.30000004,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 147198506
+        },
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 55860634
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 30781616
+        }
+      ]
     },
     {
       "boroCd": "212",
@@ -318,7 +755,26 @@
       "expectedCapital": 726211278.2407436,
       "ghostDollars": 308591314.274077,
       "perResidentPercentile": 45,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 143599531.6666667,
+        "citywide": 274020432.3,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "HIGHWAY DRAWDOWN PROGRAM",
+          "amount": 121872422
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 74891576
+        },
+        {
+          "category": "GARAGES AND FACILITIES",
+          "amount": 62078789
+        }
+      ]
     },
     {
       "boroCd": "301",
@@ -331,7 +787,26 @@
       "expectedCapital": 917827319.6246284,
       "ghostDollars": -848875840.0420383,
       "perResidentPercentile": 86,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 101877322.66666667,
+        "citywide": 1664825837,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "MISCELLANEOUS ENERGY EFFICIENCY AND SUSTAINABILITY",
+          "amount": 949074932
+        },
+        {
+          "category": "RECONSTRUCTION/RENOVATION OF COURT FACILITIES",
+          "amount": 368594122
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 105686749
+        }
+      ]
     },
     {
       "boroCd": "302",
@@ -344,7 +819,26 @@
       "expectedCapital": 568039088.0665188,
       "ghostDollars": -670273223.350148,
       "perResidentPercentile": 90,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 330244692.6666667,
+        "citywide": 908067618.75,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "INDUSTRIAL DEVELOPMENT",
+          "amount": 375464453
+        },
+        {
+          "category": "LARGE, MAJOR AND REGIONAL PARK RECONSTRUCTION",
+          "amount": 287998856
+        },
+        {
+          "category": "RECONSTRUCTION/RENOVATION OF COURT FACILITIES",
+          "amount": 130179562
+        }
+      ]
     },
     {
       "boroCd": "303",
@@ -357,7 +851,26 @@
       "expectedCapital": 815108534.2207805,
       "ghostDollars": 405938559.9707805,
       "perResidentPercentile": 38,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 318694434.5,
+        "citywide": 90475539.75,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "GARAGES AND FACILITIES",
+          "amount": 212435902
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 35052168
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 25263966.75
+        }
+      ]
     },
     {
       "boroCd": "304",
@@ -370,7 +883,26 @@
       "expectedCapital": 506269465.89180285,
       "ghostDollars": 20185799.891802847,
       "perResidentPercentile": 62,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 12137598,
+        "citywide": 473946068,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 335000000
+        },
+        {
+          "category": "LOCAL STREET RECONSTRUCTION",
+          "amount": 55000000
+        },
+        {
+          "category": "SIDEWALK RECONSTRUCTION",
+          "amount": 41187416
+        }
+      ]
     },
     {
       "boroCd": "305",
@@ -383,7 +915,26 @@
       "expectedCapital": 908938498.2810849,
       "ghostDollars": 538709195.9477515,
       "perResidentPercentile": 24,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 92972833.5,
+        "citywide": 277256468.8333334,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 77897755
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 67233164
+        },
+        {
+          "category": "PEDESTRIAN RAMP CONSTRUCTION",
+          "amount": 57155493
+        }
+      ]
     },
     {
       "boroCd": "306",
@@ -396,7 +947,26 @@
       "expectedCapital": 547114639.8580145,
       "ghostDollars": -1917799044.6086516,
       "perResidentPercentile": 98,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 43485391.46666667,
+        "citywide": 2421428293,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "WATER QUALITY MANDATES",
+          "amount": 1963395496
+        },
+        {
+          "category": "UTILITY RELOCATION FOR SE AND WM PROJECTS",
+          "amount": 152703580
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 136416906
+        }
+      ]
     },
     {
       "boroCd": "307",
@@ -409,7 +979,26 @@
       "expectedCapital": 543696557.9985441,
       "ghostDollars": 267463249.69854409,
       "perResidentPercentile": 40,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 32579512.8,
+        "citywide": 243653795.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "WATERFRONT DEVELOPMENT",
+          "amount": 149917323
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 46294315.5
+        },
+        {
+          "category": "TRAFFIC WORK IN CONJUNCTION WITH HIGHWAY RECONSTRUCTION",
+          "amount": 30575285
+        }
+      ]
     },
     {
       "boroCd": "308",
@@ -422,7 +1011,26 @@
       "expectedCapital": 496069475.5810022,
       "ghostDollars": 286059420.03100216,
       "perResidentPercentile": 29,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 49231468.8,
+        "citywide": 160778586.75,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 56810853
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 51435756
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 25263966.75
+        }
+      ]
     },
     {
       "boroCd": "309",
@@ -435,7 +1043,26 @@
       "expectedCapital": 441615271.9891212,
       "ghostDollars": 237407071.18912122,
       "perResidentPercentile": 34,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 85292562.80000001,
+        "citywide": 118915638,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 62767380
+        },
+        {
+          "category": "ROUTINE RECONSTRUCTION",
+          "amount": 46577502
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 24739640.5
+        }
+      ]
     },
     {
       "boroCd": "310",
@@ -448,7 +1075,26 @@
       "expectedCapital": 565398665.0428008,
       "ghostDollars": 234423129.54280078,
       "perResidentPercentile": 48,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 86744322,
+        "citywide": 244231213.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 131739000
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 62609001
+        },
+        {
+          "category": "LARGE, MAJOR AND REGIONAL PARK RECONSTRUCTION",
+          "amount": 49111011
+        }
+      ]
     },
     {
       "boroCd": "311",
@@ -461,7 +1107,26 @@
       "expectedCapital": 826280598.0762719,
       "ghostDollars": 345303336.4096052,
       "perResidentPercentile": 47,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 142797325.66666666,
+        "citywide": 338179936,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 147119052
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 113463000
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 91645478
+        }
+      ]
     },
     {
       "boroCd": "312",
@@ -474,7 +1139,26 @@
       "expectedCapital": 880269110.6211615,
       "ghostDollars": 855100598.6211615,
       "perResidentPercentile": 0,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 4278760,
+        "citywide": 20889752,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 20389979
+        },
+        {
+          "category": "Land Acquisition, Tree Planting and Green Infrastructure",
+          "amount": 2172000
+        },
+        {
+          "category": "GARAGES AND FACILITIES",
+          "amount": 1270240
+        }
+      ]
     },
     {
       "boroCd": "313",
@@ -487,7 +1171,26 @@
       "expectedCapital": 497995537.58118,
       "ghostDollars": -42943956.08548665,
       "perResidentPercentile": 71,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 106485203.66666666,
+        "citywide": 434454290,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 284535343
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 64247025
+        },
+        {
+          "category": "UTILITY RELOCATION FOR SE AND WM PROJECTS",
+          "amount": 56343148
+        }
+      ]
     },
     {
       "boroCd": "314",
@@ -500,7 +1203,26 @@
       "expectedCapital": 721418729.6018035,
       "ghostDollars": 609099530.3018036,
       "perResidentPercentile": 7,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 23318973.8,
+        "citywide": 89000225.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 25000000
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 24739640.5
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 18720000
+        }
+      ]
     },
     {
       "boroCd": "315",
@@ -513,7 +1235,26 @@
       "expectedCapital": 707407306.7413553,
       "ghostDollars": 527088291.5746887,
       "perResidentPercentile": 16,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 49984409.166666664,
+        "citywide": 130334606,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 87551085
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 25987344.5
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 22688302
+        }
+      ]
     },
     {
       "boroCd": "316",
@@ -526,7 +1267,26 @@
       "expectedCapital": 455685471.389481,
       "ghostDollars": 18588260.306147695,
       "perResidentPercentile": 60,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 44124041.5,
+        "citywide": 392973169.5833333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 214868446
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 49605950
+        },
+        {
+          "category": "BLUEBELT PROGRAM",
+          "amount": 39500414
+        }
+      ]
     },
     {
       "boroCd": "317",
@@ -539,7 +1299,26 @@
       "expectedCapital": 694187106.5335622,
       "ghostDollars": 644393521.0335622,
       "perResidentPercentile": 2,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 18909570,
+        "citywide": 30884015.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "GARAGES AND FACILITIES",
+          "amount": 18665376
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 8564065
+        },
+        {
+          "category": "Buildings, Recreational Facilities and Pools",
+          "amount": 7777821
+        }
+      ]
     },
     {
       "boroCd": "318",
@@ -552,7 +1331,26 @@
       "expectedCapital": 871348640.3715118,
       "ghostDollars": 6228925.038178563,
       "perResidentPercentile": 66,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 65861448,
+        "citywide": 799258267.3333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 325940058
+        },
+        {
+          "category": "FACILITY RECONSTRUCTION",
+          "amount": 318737000
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 42523627.5
+        }
+      ]
     },
     {
       "boroCd": "401",
@@ -565,7 +1363,26 @@
       "expectedCapital": 793555629.1624529,
       "ghostDollars": -877161897.8375471,
       "perResidentPercentile": 88,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 411628432,
+        "citywide": 1259089095,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 371499234
+        },
+        {
+          "category": "GARAGES AND FACILITIES",
+          "amount": 284433000
+        },
+        {
+          "category": "RENOVATION OF OTHER CITY-OWNED FACILITIES",
+          "amount": 191262901
+        }
+      ]
     },
     {
       "boroCd": "402",
@@ -578,7 +1395,26 @@
       "expectedCapital": 559837500.11271,
       "ghostDollars": -189055690.38729,
       "perResidentPercentile": 76,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 146222608,
+        "citywide": 602670582.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 157483748
+        },
+        {
+          "category": "FAIR BRIDGES",
+          "amount": 110856294
+        },
+        {
+          "category": "UTILITY RELOCATION FOR SE AND WM PROJECTS",
+          "amount": 105612557
+        }
+      ]
     },
     {
       "boroCd": "403",
@@ -592,7 +1428,26 @@
       "ghostDollars": 584999986.4004511,
       "perResidentPercentile": 10,
       "inCorridor": true,
-      "corridorNote": "Jackson Heights / North Corona"
+      "corridorNote": "Jackson Heights / North Corona",
+      "spendByBucket": {
+        "neighborhood": 37910366.866666675,
+        "citywide": 109287089.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PRIMARY STREET RECONSTRUCTION",
+          "amount": 61216751.5
+        },
+        {
+          "category": "REPLACEMENT BRANCHES",
+          "amount": 43717722
+        },
+        {
+          "category": "LARGE, MAJOR AND REGIONAL PARK RECONSTRUCTION",
+          "amount": 19644751.200000003
+        }
+      ]
     },
     {
       "boroCd": "404",
@@ -606,7 +1461,26 @@
       "ghostDollars": 597339558.5863338,
       "perResidentPercentile": 12,
       "inCorridor": true,
-      "corridorNote": "Elmhurst / Corona"
+      "corridorNote": "Elmhurst / Corona",
+      "spendByBucket": {
+        "neighborhood": 69258907.2,
+        "citywide": 95760384.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PRIMARY STREET RECONSTRUCTION",
+          "amount": 61216751.5
+        },
+        {
+          "category": "ROUTINE RECONSTRUCTION",
+          "amount": 38920451
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 33670633
+        }
+      ]
     },
     {
       "boroCd": "405",
@@ -619,7 +1493,26 @@
       "expectedCapital": 819204806.9253839,
       "ghostDollars": 487334704.5920506,
       "perResidentPercentile": 22,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 27842676.333333332,
+        "citywide": 304027426,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 146557926
+        },
+        {
+          "category": "UTILITY RELOCATION FOR SE AND WM PROJECTS",
+          "amount": 86214992
+        },
+        {
+          "category": "WATER QUALITY MANDATES",
+          "amount": 29910588.5
+        }
+      ]
     },
     {
       "boroCd": "406",
@@ -632,7 +1525,26 @@
       "expectedCapital": 547666235.0787227,
       "ghostDollars": 398514346.8787227,
       "perResidentPercentile": 19,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 36208885.86666667,
+        "citywide": 112943002.33333334,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 55619379
+        },
+        {
+          "category": "SUPPORT SERVICES IMPROVEMENTS",
+          "amount": 45323484
+        },
+        {
+          "category": "LARGE, MAJOR AND REGIONAL PARK RECONSTRUCTION",
+          "amount": 20813075.866666667
+        }
+      ]
     },
     {
       "boroCd": "407",
@@ -646,7 +1558,26 @@
       "ghostDollars": -436903247.7356143,
       "perResidentPercentile": 78,
       "inCorridor": true,
-      "corridorNote": "Flushing / Willets Point — proposed Metropolitan Park casino"
+      "corridorNote": "Flushing / Willets Point — proposed Metropolitan Park casino",
+      "spendByBucket": {
+        "neighborhood": 110103649.19999999,
+        "citywide": 1441370082.3333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 404794692
+        },
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 296166297
+        },
+        {
+          "category": "PLANT COMPONENT STABILIZATION",
+          "amount": 287061201
+        }
+      ]
     },
     {
       "boroCd": "408",
@@ -659,7 +1590,26 @@
       "expectedCapital": 700281781.5951576,
       "ghostDollars": 513684876.22849095,
       "perResidentPercentile": 17,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 152410650.53333333,
+        "citywide": 34186254.83333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "ROUTINE RECONSTRUCTION",
+          "amount": 81390716
+        },
+        {
+          "category": "Neighborhood Parks, Playgrounds and Ballfields",
+          "amount": 21700000
+        },
+        {
+          "category": "LARGE, MAJOR AND REGIONAL PARK RECONSTRUCTION",
+          "amount": 19644751.200000003
+        }
+      ]
     },
     {
       "boroCd": "409",
@@ -672,7 +1622,26 @@
       "expectedCapital": 675319837.2219615,
       "ghostDollars": 524513142.0552948,
       "perResidentPercentile": 14,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 34767991.333333336,
+        "citywide": 116038703.83333334,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "RECONSTRUCTION/RENOVATION OF COURT FACILITIES",
+          "amount": 64756020
+        },
+        {
+          "category": "RECONSTRUCTION NECESSARY TO MAINTAIN FACILITIES",
+          "amount": 25856958
+        },
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 22192188
+        }
+      ]
     },
     {
       "boroCd": "410",
@@ -686,7 +1655,26 @@
       "ghostDollars": 361850022.8734102,
       "perResidentPercentile": 26,
       "inCorridor": true,
-      "corridorNote": "South Ozone Park / Howard Beach — Resorts World + Aqueduct"
+      "corridorNote": "South Ozone Park / Howard Beach — Resorts World + Aqueduct",
+      "spendByBucket": {
+        "neighborhood": 19230706.333333336,
+        "citywide": 231099540.3333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 159710957
+        },
+        {
+          "category": "BRIDGE LIFE EXTENSION AND MISCELLANEOUS WORK",
+          "amount": 31400000
+        },
+        {
+          "category": "WATER QUALITY MANDATES",
+          "amount": 16887250
+        }
+      ]
     },
     {
       "boroCd": "411",
@@ -699,7 +1687,26 @@
       "expectedCapital": 548348947.1961566,
       "ghostDollars": 167574332.52949,
       "perResidentPercentile": 55,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 53270646.333333336,
+        "citywide": 327503968.3333333,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "WATER QUALITY MANDATES",
+          "amount": 169280000
+        },
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 62578805
+        },
+        {
+          "category": "MISCELLANEOUS RECONSTRUCTION",
+          "amount": 37151492
+        }
+      ]
     },
     {
       "boroCd": "412",
@@ -713,7 +1720,26 @@
       "ghostDollars": -45487014.036896944,
       "perResidentPercentile": 67,
       "inCorridor": true,
-      "corridorNote": "Jamaica / St. Albans / Hollis"
+      "corridorNote": "Jamaica / St. Albans / Hollis",
+      "spendByBucket": {
+        "neighborhood": 118524462.66666667,
+        "citywide": 1078498957.5,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT COMPONENT STABILIZATION",
+          "amount": 525856321
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 131154350
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 131083960.5
+        }
+      ]
     },
     {
       "boroCd": "413",
@@ -726,7 +1752,26 @@
       "expectedCapital": 927724384.6912696,
       "ghostDollars": -1914433059.6420643,
       "perResidentPercentile": 95,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 48337703.333333336,
+        "citywide": 2793819741.0000005,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "CITY TUNNEL NO. 3, STAGE 2",
+          "amount": 1165712427
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 515333766.5
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 470815026
+        }
+      ]
     },
     {
       "boroCd": "414",
@@ -739,7 +1784,26 @@
       "expectedCapital": 590342524.3267934,
       "ghostDollars": -155440388.67320657,
       "perResidentPercentile": 74,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 78912934,
+        "citywide": 666869979,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "PLANT UPGRADING AND RECONSTRUCTION",
+          "amount": 234729552
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 84537746
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 67735000
+        }
+      ]
     },
     {
       "boroCd": "501",
@@ -752,7 +1816,26 @@
       "expectedCapital": 819928210.4935259,
       "ghostDollars": -427573609.17314065,
       "perResidentPercentile": 81,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 123621468.66666667,
+        "citywide": 1123880351,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 222605344.5
+        },
+        {
+          "category": "CONSTRUCTION OF NEW COURT FACILITIES",
+          "amount": 202040000
+        },
+        {
+          "category": "ESSENTIAL RECONSTRUCTION OF FACILITIES",
+          "amount": 150151822
+        }
+      ]
     },
     {
       "boroCd": "502",
@@ -765,7 +1848,26 @@
       "expectedCapital": 644986621.3553118,
       "ghostDollars": -531481935.81135476,
       "perResidentPercentile": 84,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 82823372.16666666,
+        "citywide": 1093645185,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "REPLACEMENT OF CHRONICALLY FAILING COMPONENTS",
+          "amount": 204347163
+        },
+        {
+          "category": "TRUNK AND DISTRIBUTION MAIN REPLACEMENT",
+          "amount": 177519503.5
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 150177000
+        }
+      ]
     },
     {
       "boroCd": "503",
@@ -778,7 +1880,26 @@
       "expectedCapital": 762869754.056334,
       "ghostDollars": 10195060.889667392,
       "perResidentPercentile": 64,
-      "inCorridor": false
+      "inCorridor": false,
+      "spendByBucket": {
+        "neighborhood": 80698072.16666667,
+        "citywide": 671976621,
+        "other": 0
+      },
+      "topCategories": [
+        {
+          "category": "GARAGES AND FACILITIES",
+          "amount": 162397727
+        },
+        {
+          "category": "TRAFFIC WORK IN CONJUNCTION WITH HIGHWAY RECONSTRUCTION",
+          "amount": 140313038
+        },
+        {
+          "category": "REPLACEMENT OR AUGMENTATION OF EXISTING SYSTEMS",
+          "amount": 103588565
+        }
+      ]
     }
   ]
 }
