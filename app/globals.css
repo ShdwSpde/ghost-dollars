@@ -455,6 +455,397 @@ header h1 {
   line-height: 1.3;
 }
 
+/* ── Trading Card: exportable collectible stat sheet ────── */
+
+.tcard-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Clips the CSS-scaled card to its visual footprint */
+.tcard-scale-box {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fixed-size design canvas — scaled down for preview via inline transform */
+.tcard {
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+/* ── Photo band (top ~38%) ───── */
+.tcard-photo-band {
+  position: relative;
+  height: 342px;          /* 38% of 900px design height */
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--cobalt);
+}
+
+.tcard-photo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(1) contrast(1.1) brightness(0.88);
+}
+
+.tcard-photo-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 44, 140, 0.82) 0%,
+    rgba(30, 44, 140, 0.52) 38%,
+    rgba(234, 59, 34, 0.44) 72%,
+    rgba(247, 178, 27, 0.32) 100%
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+.tcard-photo-fallback {
+  width: 100%;
+  height: 100%;
+  background: var(--cobalt);
+}
+
+.tcard-photo-credit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.3rem 0.6rem;
+  background: rgba(24, 26, 46, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--marigold);
+  line-height: 1.3;
+}
+
+/* ── Content body ─────────────── */
+.tcard-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 16px 20px 14px;
+  background: var(--cream);
+  min-height: 0;
+}
+
+/* Header row: wordmark + card-id */
+.tcard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 7px;
+}
+
+.tcard-wordmark {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  font-weight: 700;
+}
+
+.tcard-card-id {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.tcard-collect-num {
+  color: var(--clay);
+}
+
+/* District name */
+.tcard-name {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 2.1rem;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin: 4px 0 12px;
+}
+
+/* Hero stat row: big ghost number + rank badge */
+.tcard-hero-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.tcard-hero-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1;
+}
+
+.tcard-is-ghost .tcard-hero-amount {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--vermilion);
+  letter-spacing: -0.01em;
+}
+
+.tcard-is-ghost .tcard-hero-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--vermilion);
+  letter-spacing: 0.04em;
+}
+
+.tcard-is-above .tcard-hero-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--cobalt);
+  letter-spacing: 0.02em;
+}
+
+/* Rank badge — rarity chip style */
+.tcard-rank-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 6px 10px;
+  border: 2px solid var(--marigold);
+  min-width: 78px;
+}
+
+.tcard-rank-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--marigold);
+  line-height: 1.1;
+}
+
+.tcard-rank-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 233, 211, 0.7);
+  margin-top: 1px;
+}
+
+/* Stat strip with dotted leaders */
+.tcard-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.tcard-stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.tcard-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tcard-stat-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--clay);
+  margin-bottom: 3px;
+  min-width: 8px;
+}
+
+.tcard-stat-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Mini ghost-bar */
+.tcard-bar-section {
+  margin-bottom: 10px;
+}
+
+.tcard-bar-legend {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.tcard-bar-track {
+  display: flex;
+  height: 24px;
+  width: 100%;
+  border: 2px solid var(--ink);
+  background: var(--cream);
+}
+
+.tcard-bar-fill {
+  background: var(--cobalt);
+  min-width: 2px;
+}
+
+.tcard-bar-gap {
+  border-left: 2px solid var(--vermilion);
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 5px,
+    rgba(234, 59, 34, 0.32) 5px, rgba(234, 59, 34, 0.32) 7px
+  );
+  min-width: 0;
+}
+
+.tcard-bar-over {
+  width: 8px;
+  background: var(--marigold);
+}
+
+.tcard-bar-caption {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--ink);
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+/* Flags */
+.tcard-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tcard-flag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border: 1.5px solid currentColor;
+  font-weight: 700;
+}
+
+.tcard-flag-casino {
+  background: var(--marigold);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.tcard-flag-corridor {
+  background: transparent;
+  color: var(--cobalt);
+  border-color: var(--cobalt);
+}
+
+.tcard-flag-ref {
+  background: transparent;
+  color: var(--clay);
+  border-color: var(--clay);
+}
+
+/* Footer micro */
+.tcard-footer {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+  color: var(--clay);
+  line-height: 1.4;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--clay);
+}
+
+/* Export button */
+.tcard-export-btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--cream);
+  border: 2px solid var(--ink);
+}
+
+.tcard-export-btn:hover {
+  background: var(--cobalt);
+  border-color: var(--cobalt);
+}
+
+.tcard-export-btn:focus-visible {
+  outline: 3px solid var(--marigold);
+  outline-offset: 2px;
+}
+
+/* Reveal toggle for "Get the card" */
+.tcard-toggle-btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  background: var(--cream);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tcard-toggle-btn:hover {
+  background: var(--marigold);
+}
+
+.tcard-toggle-btn:focus-visible {
+  outline: 3px solid var(--marigold);
+  outline-offset: 2px;
+}
+
 /* ── MapLibre attribution legibility on cream ───────────── */
 .maplibregl-ctrl-attrib {
   background: rgba(243, 233, 211, 0.85) !important;

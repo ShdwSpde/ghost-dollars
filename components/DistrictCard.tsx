@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useAtlas } from "./AtlasProvider";
 import { BOROUGH_BY_DIGIT } from "@/src/lib/pipeline/cdId";
 import { fmtUsd, fmtPct, ghostSentence, ordinal } from "@/src/lib/format";
@@ -6,6 +7,7 @@ import { referenceNote } from "@/src/lib/referenceDistricts";
 import { neighborhoodImage } from "@/src/lib/neighborhoodImages";
 import { Receipt } from "./Receipt";
 import { CasinoOdds } from "./CasinoOdds";
+import { TradingCard } from "./TradingCard";
 
 // The signature device: ghost dollars drawn as visible negative space.
 // Solid cobalt = capital received; hollow vermilion-outlined extension = the
@@ -61,6 +63,8 @@ function GhostBar({ visible, expected, ghost }: { visible: number; expected: num
 
 export function DistrictCard() {
   const { dataset, selectedCd, setSelectedCd } = useAtlas();
+  const [showCard, setShowCard] = useState(false);
+
   if (!selectedCd) return <aside className="card empty">Click a district to see what it lost.</aside>;
   const cd = dataset.cds.find((c) => c.boroCd === selectedCd);
   if (!cd) return <aside className="card empty">No data for this district.</aside>;
@@ -78,7 +82,7 @@ export function DistrictCard() {
           />
         </div>
       )}
-      <button className="close" onClick={()=>setSelectedCd(null)} aria-label="Close">×</button>
+      <button className="close" onClick={()=>{ setSelectedCd(null); setShowCard(false); }} aria-label="Close">×</button>
       <h2>{BOROUGH_BY_DIGIT[cd.boroCd[0]]} CD{parseInt(cd.boroCd.slice(1),10)}</h2>
       {cd.corridorNote && <p className="corridor">{cd.corridorNote}</p>}
       {!cd.corridorNote && referenceNote(cd.boroCd) && (
@@ -100,6 +104,21 @@ export function DistrictCard() {
       <p className="ghost-sentence">{ghostSentence(cd)}</p>
       <Receipt cd={cd} />
       <CasinoOdds cd={cd} />
+
+      {/* Trading card reveal */}
+      <button
+        className="tcard-toggle-btn"
+        onClick={() => setShowCard((v) => !v)}
+        aria-expanded={showCard}
+        aria-controls="trading-card-panel"
+      >
+        {showCard ? "Hide card ▾" : "Get the card ▸"}
+      </button>
+      {showCard && (
+        <div id="trading-card-panel">
+          <TradingCard cd={cd} />
+        </div>
+      )}
     </aside>
   );
 }
