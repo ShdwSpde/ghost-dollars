@@ -2,6 +2,7 @@
 import { useAtlas } from "./AtlasProvider";
 import { BOROUGH_BY_DIGIT } from "@/src/lib/pipeline/cdId";
 import { fmtUsd, fmtPct, ghostSentence, ordinal } from "@/src/lib/format";
+import { referenceNote } from "@/src/lib/referenceDistricts";
 import { Receipt } from "./Receipt";
 import { CasinoOdds } from "./CasinoOdds";
 
@@ -67,6 +68,12 @@ export function DistrictCard() {
       <button className="close" onClick={()=>setSelectedCd(null)} aria-label="Close">×</button>
       <h2>{BOROUGH_BY_DIGIT[cd.boroCd[0]]} CD{parseInt(cd.boroCd.slice(1),10)}</h2>
       {cd.corridorNote && <p className="corridor">{cd.corridorNote}</p>}
+      {!cd.corridorNote && referenceNote(cd.boroCd) && (
+        <div className="reference-note">
+          <span className="reference-note-eyebrow">Citywide Reference</span>
+          <span className="reference-note-text">{referenceNote(cd.boroCd)}</span>
+        </div>
+      )}
       <GhostBar visible={cd.visibleCapital} expected={cd.expectedCapital} ghost={cd.ghostDollars} />
       <dl>
         <div><dt>Visible capital</dt><dd>{fmtUsd(cd.visibleCapital)}</dd></div>

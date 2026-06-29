@@ -256,6 +256,21 @@ header h1 {
   font-family: var(--font-body); font-size: 0.85rem; color: var(--clay);
   margin-bottom: 0.75rem; font-style: italic;
 }
+.card .reference-note {
+  display: flex; flex-direction: column; gap: 0.2rem;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-left: 3px solid var(--clay);
+  background: rgba(194, 97, 58, 0.07);
+}
+.card .reference-note-eyebrow {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--clay);
+}
+.card .reference-note-text {
+  font-family: var(--font-body); font-size: 0.85rem; color: var(--ink);
+  font-style: italic;
+}
 
 /* The signature device */
 .ghostbar { margin: 1rem 0 1.25rem; }
