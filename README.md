@@ -1,14 +1,14 @@
 # Ghost Dollars
 
-An interactive map that makes visible what New York City's capital-spending data leaves out — the investment immigrant neighborhoods don't get, and the spending the city can't place on a map.
+An interactive map that makes visible what New York City's capital-spending data leaves out: the investment immigrant neighborhoods don't get, and the spending the city can't place on a map.
 
 ## The Two Framings
 
-**Ghost dollars — the equity gap.** For each of NYC's 59 community districts, ghost dollars represent the capital investment a neighborhood *did not* receive relative to an equal-per-resident baseline. A positive ghost-dollar figure means the district received less than its population-proportional share of visible capital. The tool reports this as a percentile rank (not a false-precision dollar entitlement) to make the comparative tilt legible without overstating precision.
+**Ghost dollars: the equity gap.** For each of NYC's 59 community districts, ghost dollars represent the capital investment a neighborhood *did not* receive relative to an equal-per-resident baseline. A positive ghost-dollar figure means the district received less than its population-proportional share of visible capital. The tool reports this as a percentile rank (not a false-precision dollar entitlement) to make the comparative tilt legible without overstating precision.
 
-**Dark dollars — two compounding transparency gaps.** There is no single dark-dollars number. There are two separate, stacking gaps, and the tool is careful never to conflate them:
+**Dark dollars: two transparency gaps that compound.** There is no single dark-dollars number. There are two separate, stacking gaps, and the tool is careful never to conflate them:
 
-1. **Unplaceable share (computed here, ~74%):** Of the capital the city *does* publish in the Capital Projects Dashboard, roughly $116B of $158B (the current commitment plan) is tagged `Citywide`, borough-only, or lump-sum — it names no community district. This is our computed `darkSharePct`. These dollars exist in the public record but cannot be assigned to any neighborhood.
+1. **Unplaceable share (computed here, ~74%):** Of the capital the city *does* publish in the Capital Projects Dashboard, roughly $116B of $158B (the current commitment plan) is tagged `Citywide`, borough-only, or lump-sum, so it names no community district. This is our computed `darkSharePct`. These dollars exist in the public record but cannot be assigned to any neighborhood.
 
 2. **Missing share (NYC Comptroller, *"Flying Blind on Billions,"* Dec 2025, ~47%):** The dashboard contains only about 47% of project IDs and ~58% of planned dollars present in the city's underlying financial system. Roughly half of projects never appear in the public-facing data at all.
 
@@ -22,7 +22,7 @@ These stack: of all capital, roughly half never reaches the dashboard, and of wh
 
 **Multi-CD projects:** A small fraction (~3%) of rows name more than one community district (e.g. `"Manhattan 01, Manhattan 12"`). These projects split `total_budget` equally across the listed districts. Borough-only and Citywide rows are classified as dark.
 
-**Parity baseline:** A flat equal-per-resident dollar figure: (sum of all placeable visible capital) ÷ (sum of all placeable-CD populations). This is the most conservative baseline — hardest to attack, easiest to interpret. A need-weighted baseline is a planned future toggle, never the default.
+**Parity baseline:** A flat equal-per-resident dollar figure: (sum of all placeable visible capital) ÷ (sum of all placeable-CD populations). It is the most conservative baseline, and the simplest to read and to defend. A need-weighted baseline is a planned future toggle, never the default.
 
 **Percentile reporting:** Per-resident visible capital is ranked across all 59 CDs and reported as a percentile. Ghost dollars are shown for orientation, not as a precise entitlement claim.
 
